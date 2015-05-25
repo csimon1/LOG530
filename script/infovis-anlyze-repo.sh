@@ -5,10 +5,13 @@ REVISION_AUTHOR=1
 REVISION_DATE=2
 REVISION_VERSION=3
 
+ANALYSYS_FOLDER=infovis_anal
+
+cd .. #move down from script
 if [[ "$1" == "w" ]]; then 
 	echo 'Skipping infovis delete'
 else
-	rm -rf infovis 2> /dev/null
+	rm -rf $ANALYSYS_FOLDER 2> /dev/null
 	rm infovis.svnlog.tmp_file 2> /dev/null
 fi
 
@@ -62,12 +65,12 @@ done < infovis.svnlog.tmp_file
 if [[ "$1" == "w" ]]; then 
 	echo 'Skipping svn fetch'
 else
-	mkdir infovis
+	mkdir $ANALYSYS_FOLDER
 	echo checkout
-	svn co $repo/tags infovis
+	svn co $repo/tags $ANALYSYS_FOLDER
 fi
 
-cd ./infovis
+cd ./$ANALYSYS_FOLDER
 base_infovis=$(pwd)
 
 for ((i=1;i<=nb_rev;i++))
