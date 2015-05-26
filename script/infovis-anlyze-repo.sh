@@ -7,12 +7,10 @@ REVISION_VERSION=3
 
 ANALYSYS_FOLDER=infovis_anal
 
-#SONAR_DB_USR=sonar
-#SONAR_DB_PWD=sonarpwd
-SONAR_USR=admin
-SONAR_PWD=admin
-SONAR_DB_USR=admin
-SONAR_DB_PWD=admin
+SONAR_DB_USR=sonar
+SONAR_DB_PWD=sonarpwd
+SONAR_USR=infovis_analyzer
+SONAR_PWD=analyzer
 
 
 cd $(dirname $0) #move us into script folder
@@ -108,8 +106,8 @@ sonar.projectName=Infovis
 sonar.projectVersion='$rev_vers'
 #sonar.projectDate='$rev_date' #breaking analysys atm 27/05/15
 
-sonar.login=infovis_analyzer 
-sonar.password=analyzer
+sonar.login='$SONAR_USR' 
+sonar.password='$SONAR_PWD'
 
 sonar.language=java
 
@@ -128,8 +126,8 @@ sonar.sources=src
 sonar.sourceEncoding=UTF-8
 
 sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance
-sonar.jdbc.username=sonar
-sonar.jdbc.password=sonarpwd
+sonar.jdbc.username='$SONAR_DB_USR'
+sonar.jdbc.password='$SONAR_DB_PWD'
 
 #too slow for analysys
 #sonar.scm.provider=svn
@@ -143,7 +141,6 @@ sonar.jdbc.password=sonarpwd
 	cd ./$rev_vers
 	#echo "Simulate analysis for $rev_vers"
 	sonar-runner
-	exit
 done
 
 
