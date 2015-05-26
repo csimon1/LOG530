@@ -7,10 +7,18 @@ REVISION_VERSION=3
 
 ANALYSYS_FOLDER=infovis_anal
 
+#SONAR_DB_USR=sonar
+#SONAR_DB_PWD=sonarpwd
+SONAR_USR=admin
+SONAR_PWD=admin
+SONAR_DB_USR=admin
+SONAR_DB_PWD=admin
+
+
+cd $(dirname $0) #move us into script folder
 cd .. #move down from script
-if [[ "$1" == "w" ]]; then 
-	echo 'Skipping infovis delete'
-else
+if [[ "$1" == "f" ]]; then 
+	echo 'Deleting infovis folders for clean fetch'
 	rm -rf $ANALYSYS_FOLDER 2> /dev/null
 	rm infovis.svnlog.tmp_file 2> /dev/null
 fi
@@ -62,9 +70,7 @@ done < infovis.svnlog.tmp_file
 #tar -zxvf cobertura-2.1.1-bin.tar.gz
 
 
-if [[ "$1" == "w" ]]; then 
-	echo 'Skipping svn fetch'
-else
+if [[ "$1" == "f" ]]; then 
 	mkdir $ANALYSYS_FOLDER
 	echo checkout
 	svn co $repo/tags $ANALYSYS_FOLDER
@@ -73,7 +79,7 @@ fi
 cd ./$ANALYSYS_FOLDER
 base_infovis=$(pwd)
 
-for ((i=1;i<=nb_rev;i++))
+for ((i=nb_rev-1;i>0;i--))
 do
 	cd $base_infovis
 
@@ -94,49 +100,50 @@ do
 	#../cobertura-2.1.1/cobertura-instruments.sh 
 	#../cobertura-2.1.1/cobertura-report.sh --datafile ./cobertura_filtered.ser --destination ../report --format html ../sources/
 	
-	echo '# must be unique in a given SonarQube instance
-	sonar.projectKey=log530:Infovis
-	# this is the name displayed in the SonarQube UI
-	sonar.projectName=Infovis project
-	sonar.projectVersion=revision-'$rev_number' '$rev_vers'
+	echo \
+'# must be unique in a given SonarQube instance
+sonar.projectKey=Infovis
+# this is the name displayed in the SonarQube UI
+sonar.projectName=Infovis
+sonar.projectVersion='$rev_vers'
+#sonar.projectDate='$rev_date' #breaking analysys atm 27/05/15
 
-	sonar.language=java
+sonar.login=infovis_analyzer 
+sonar.password=analyzer
+
+sonar.language=java
 
 
-	sonar.branch=tags
-	sonar.projectDate='$rev_date'
-	# yyyy-MM-dd
-	
-	sonar.login=infovis_analyzer 
-	sonar.password=analyzer
-	 
-	# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
-	# Since SonarQube 4.2, this property is optional if sonar.modules is set. 
-	# If not set, SonarQube starts looking for source code from the directory containing 
-	# the sonar-project.properties file.
-	sonar.sources=./src
-	#sonar.tests=./tests
-	 
-	# Encoding of the source code. Default is default system encoding
-	#sonar.sourceEncoding=UTF-8
+# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
+# Since SonarQube 4.2, this property is optional if sonar.modules is set. 
+# If not set, SonarQube starts looking for source code from the directory containing 
+# the sonar-project.properties file.
+sonar.sources=src
+#sonar.tests=./tests
 
-	#sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance
-	#sonar.jdbc.username=sonar
-	#sonar.jdbc.password=sonarpwd
-	
-	sonar.scm.provider=svn
-	sonar.scm.disabled=false
-	
-	sonar.scm.enabled=true
-	sonar.scm.url=scm:svn:'$repo'/trunk
-	
+#for DSM analysis
+#sonar.binaries=binpath
+ 
+# Encoding of the source code. Default is default system encoding
+sonar.sourceEncoding=UTF-8
 
-	#sonar.cobertura.reportPath=coverage.xml
-	' >> ./$rev_vers/sonar-project.properties
+sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance
+sonar.jdbc.username=sonar
+sonar.jdbc.password=sonarpwd
+
+#too slow for analysys
+#sonar.scm.provider=svn
+#sonar.scm.disabled=false
+#sonar.scm.enabled=true
+#sonar.scm.url=scm:svn:'$repo'/trunk
+
+#sonar.cobertura.reportPath=coverage.xml
+' > ./$rev_vers/sonar-project.properties
 	
 	cd ./$rev_vers
-	echo "Simulate analysis"
-	#sonar-runner # skip to next if fail
+	#echo "Simulate analysis for $rev_vers"
+	sonar-runner
+	exit
 done
 
 
