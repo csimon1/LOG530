@@ -24,6 +24,8 @@ public class CustomerTest {
 		r2 = new Rental(m2, 2);
 	}
 
+	//Commented for refactor check
+	/*
 	@Test
 	public void testCustomer() {
 		assertNull(new Customer (null)); // no name should fail
@@ -38,6 +40,7 @@ public class CustomerTest {
 		c0.addRental(r0);
 		assertNotEquals(cbase, c0);
 	}
+	*/
 
 	@Test
 	public void testGetName() {
@@ -47,8 +50,54 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void testStatement() {
-		fail("Not yet implemented");
+	public void testStatement0() {
+		String stat0 = "Rental Record for Benoit\n"
+						+"Amount owed is 0.0\n"
+						+"You earned 0frequent renter points";
+		//System.out.println("co_stat="+c0.statement());
+		assertTrue(c0.statement().compareTo(stat0)==0);
+		//fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testStatement1() {
+		String stat0 = "Rental Record for Benoit\n"
+						+"	Matrix	2.0\n"
+						+"Amount owed is 2.0\n"
+						+"You earned 1frequent renter points";
+		c0.addRental(r0);
+		String stat1 = c0.statement();
+		//System.out.println("co_stat="+stat1);
+		assertTrue(stat1.compareTo(stat0)==0);
+	}
+	
+	@Test
+	public void testStatement2() {
+		String stat0 = "Rental Record for Benoit\n"
+						+"	Matrix	2.0\n"
+						+"	Titanic	3.0\n"
+						+"Amount owed is 5.0\n"
+						+"You earned 2frequent renter points";
+		c0.addRental(r0);
+		c0.addRental(r1);
+		String stat1 = c0.statement();
+		//System.out.println("co_stat="+stat1);
+		assertTrue(stat1.compareTo(stat0)==0);
 	}
 
+	@Test
+	public void testStatement3() {
+		String stat0 = "Rental Record for Benoit\n"
+						+"	Matrix	2.0\n"
+						+"	Titanic	3.0\n"
+						+"	Jumangi	1.5\n"
+						+"Amount owed is 6.5\n"
+						+"You earned 3frequent renter points";
+		c0.addRental(r0);
+		c0.addRental(r1);
+		c0.addRental(r2);
+		String stat1 = c0.statement();
+		//System.out.println("co_stat="+stat1);
+		assertTrue(stat1.compareTo(stat0)==0);
+	}
 }
