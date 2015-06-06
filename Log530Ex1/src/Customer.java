@@ -11,14 +11,14 @@ public class Customer {
 		_name = name;
 	}
 	
-	public void addRental(Rental arg){
-		_rentals.addElement(arg);
+	public void add(Rental rental){
+		_rentals.addElement(rental);
 	}
 	public String getName() {
 		return _name;
 	}
 	
-	public String statement(){
+	public String toString(){
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		Enumeration rentals = _rentals.elements();
@@ -28,16 +28,16 @@ public class Customer {
 			Rental each = (Rental) rentals.nextElement();
 			
 			//determine amounts for each Rental
-			thisAmount = determineRentalAmount(each);
+			thisAmount = determineAmount(each);
 			
 			// add frequent renter points
 			frequentRenterPoints ++;
 			// add bonus for two day new release rental
-			if(hasRentalBonus(each)) frequentRenterPoints ++;
+			if(hasBonus(each)) frequentRenterPoints ++;
 			
 			//show figures for this rental
 			
-			result += showRentalFigure(each,thisAmount);
+			result += showFigure(each,thisAmount);
 			
 			totalAmount += thisAmount;
 			
@@ -52,7 +52,7 @@ public class Customer {
 
 	
 	
-	private double determineRentalAmount(Rental r) {
+	private double determineAmount(Rental r) {
 		double amount = 0;
 		
 		switch (r.getMovie().getPriceCode()){
@@ -74,11 +74,11 @@ public class Customer {
 		return amount;
 	}
 
-	private String showRentalFigure(Rental r, double rAmount) {
+	private String showFigure(Rental r, double rAmount) {
 		return "\t" +r.getMovie().getTitle()+ "\t" + String.valueOf(rAmount) + "\n";
 	}
 
-	private boolean hasRentalBonus(Rental r) {
+	private boolean hasBonus(Rental r) {
 		return (r.getMovie().getPriceCode() == Movie.NEW_RELEASE) && r.getDaysRented() > 1;
 		 
 	}
