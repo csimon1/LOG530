@@ -16,31 +16,43 @@ public class CustomerTest {
 		c1 = new Customer ("Charly");
 		c2 = new Customer ("Max");
 		
-		m0 = new Movie("Matrix", 0);
-		m1 = new Movie("Titanic", 1);
-		m2 = new Movie("Jumangi", 2); //madmax
+		m0 = new Movie("Matrix", Movie.movieType.REGULAR);
+		m1 = new Movie("Titanic", Movie.movieType.NEW_RELEASE);
+		m2 = new Movie("Jumanji", Movie.movieType.CHILDRENS);
+		
 		r0 = new Rental(m0, 0);
 		r1 = new Rental(m1, 1);
 		r2 = new Rental(m2, 2);
 	}
 
 	//Commented for refactor check
-	/*
-	@Test
+	@Test(expected = IllegalArgumentException.class) 
 	public void testCustomer() {
 		assertNull(new Customer (null)); // no name should fail
 	}
 
+	@Test(expected = IllegalArgumentException.class) 
+	public void testAddBadRental() {
+		c0.addRental(null);
+	}
+	
+	@Test
+	public void testAddRentalDuplicate() {
+		Customer cbase = new Customer ("Benoit");
+		c0.addRental(r0);
+		cbase.addRental(r0);
+		c0.addRental(r0); //already in there, should discard
+		assertEquals(cbase.displayInfos(), c0.displayInfos());
+	}
+	
 	@Test
 	public void testAddRental() {
-		fail("Not yet implemented");
-
 		Customer cbase = new Customer ("Benoit");
 		//Customer cbase = c0.clone();
-		c0.addRental(r0);
-		assertNotEquals(cbase, c0);
+		c0.addRental(r1);
+		assertNotEquals(cbase.displayInfos(), c0.displayInfos());
 	}
-	*/
+	
 
 	@Test
 	public void testGetName() {
@@ -54,9 +66,9 @@ public class CustomerTest {
 		String stat0 = "Rental Record for Benoit\n"
 						+"Amount owed is 0.0\n"
 						+"You earned 0frequent renter points";
-		//System.out.println("co_stat="+c0.statement());
-		assertTrue(c0.statement().compareTo(stat0)==0);
-		//fail("Not yet implemented");
+		String stat1 = c0.displayInfos();
+		//System.out.println("co_stat="+stat1);
+		assertTrue(stat1.compareTo(stat0)==0);
 	}
 	
 	@Test
@@ -66,7 +78,7 @@ public class CustomerTest {
 						+"Amount owed is 2.0\n"
 						+"You earned 1frequent renter points";
 		c0.addRental(r0);
-		String stat1 = c0.statement();
+		String stat1 = c0.displayInfos();
 		//System.out.println("co_stat="+stat1);
 		assertTrue(stat1.compareTo(stat0)==0);
 	}
@@ -80,7 +92,7 @@ public class CustomerTest {
 						+"You earned 2frequent renter points";
 		c0.addRental(r0);
 		c0.addRental(r1);
-		String stat1 = c0.statement();
+		String stat1 = c0.displayInfos();
 		//System.out.println("co_stat="+stat1);
 		assertTrue(stat1.compareTo(stat0)==0);
 	}
@@ -90,14 +102,14 @@ public class CustomerTest {
 		String stat0 = "Rental Record for Benoit\n"
 						+"	Matrix	2.0\n"
 						+"	Titanic	3.0\n"
-						+"	Jumangi	1.5\n"
+						+"	Jumanji	1.5\n"
 						+"Amount owed is 6.5\n"
 						+"You earned 3frequent renter points";
 		c0.addRental(r0);
 		c0.addRental(r1);
 		c0.addRental(r2);
-		String stat1 = c0.statement();
+		String stat1 = c0.displayInfos();
 		//System.out.println("co_stat="+stat1);
-		assertTrue(stat1.compareTo(stat0)==0);
+		assertTrue(stat1.compareTo(stat0)==0);		
 	}
 }

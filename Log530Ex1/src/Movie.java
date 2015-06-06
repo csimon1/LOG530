@@ -1,26 +1,37 @@
 
 public class Movie {
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
+	public static enum movieType {
+		CHILDRENS,
+		REGULAR,
+		NEW_RELEASE
+	};
 	
-	private String _title;
-	private int _priceCode;
+	private final String _title;
+	private movieType _priceCode;
 	
-	public Movie(String title, int priceCode){
+	public Movie(String title, movieType priceCode){
+		if (title == null || priceCode == null) {
+		    throw new IllegalArgumentException(
+		      String.format("Parameters can't be null: title=%s, priceCode=%s", title, priceCode));
+		}
 		_title = title;
 		_priceCode = priceCode;
 	}
 	
-	public int getPriceCode(){
+	public movieType getPriceCode(){
 		return _priceCode;
 	}
 	
-	public void setPricCode(int arg){
-		_priceCode = arg;
+	public void setPricCode(movieType priceCode){
+		if (priceCode == null) {
+		    throw new IllegalArgumentException(
+		      String.format("Parameters can't be null: priceCode=%s", priceCode));
+		}
+		_priceCode = priceCode;
 	}
 	
 	public String getTitle(){
 		return _title;
 	};
+	
 }
