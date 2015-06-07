@@ -53,25 +53,7 @@ public class Customer {
 	
 	
 	private double determineAmount(Rental r) {
-		double amount = 0;
-		
-		switch (r.getMovie().getPriceCode()){
-		case Movie.REGULAR:
-			amount += 2;
-			if(r.getDaysRented() > 2)
-				amount += (r.getDaysRented() - 2)*1.5;
-			break;
-		case Movie.NEW_RELEASE:
-			amount += r.getDaysRented() *3;
-			break;
-		case Movie.CHILDRENS:
-			amount += 1.5;
-			if(r.getDaysRented() > 3)
-				amount += (r.getDaysRented() - 3) *1.5;
-			break;
-		}
-		
-		return amount;
+		return r.determineAmount();
 	}
 
 	private String showFigure(Rental r, double rAmount) {
