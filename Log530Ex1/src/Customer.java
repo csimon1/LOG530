@@ -2,6 +2,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 
+
 public class Customer {
 	private String _name;
 	
@@ -61,7 +62,7 @@ public class Customer {
 	}
 
 	private boolean hasBonus(Rental r) {
-		return (r.getMovie().getPriceCode() == Movie.NEW_RELEASE) && r.getDaysRented() > 1;
+		return (r.getMovie().getPriceCode() == Movie.MovieType.NEW_RELEASE) && r.getDaysRented() > 1;
 		 
 	}
 

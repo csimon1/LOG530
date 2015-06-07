@@ -1,21 +1,25 @@
 
 public abstract class Movie {
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
+	
+	public static enum MovieType 
+	{
+		CHILDRENS,
+		REGULAR,
+		NEW_RELEASE
+	}
 	
 	private String _title;
-	private int _priceCode;
+	private MovieType _priceCode;
 	
-	public Movie(String title, int priceCode){
+	public Movie(String title, MovieType priceCode){
 		_title = title;
 		_priceCode = priceCode;
 	}
 	
-	public int getPriceCode(){
+	public MovieType getPriceCode(){
 		return _priceCode;
 	}
-	public void setPricCode(int priceCode){
+	public void setPricCode(MovieType priceCode){
 		_priceCode = priceCode;
 	}
 	public String getTitle(){
@@ -28,7 +32,7 @@ public abstract class Movie {
 	public class ChildrensMovie extends Movie
 	{
 
-		public ChildrensMovie(String title, int priceCode) {
+		public ChildrensMovie(String title, MovieType priceCode) {
 			super(title, priceCode);
 		}
 		
@@ -44,7 +48,7 @@ public abstract class Movie {
 	public class RegularMovie extends Movie
 	{
 
-		public RegularMovie(String title, int priceCode) {
+		public RegularMovie(String title, MovieType priceCode) {
 			super(title, priceCode);
 		}
 		
@@ -59,7 +63,7 @@ public abstract class Movie {
 	public class NewReleaseMovie extends Movie
 	{
 
-		public NewReleaseMovie(String title, int priceCode) {
+		public NewReleaseMovie(String title, MovieType priceCode) {
 			super(title, priceCode);
 		}
 		
