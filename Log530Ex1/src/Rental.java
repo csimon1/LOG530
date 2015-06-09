@@ -18,5 +18,14 @@ class Rental {
 	public double determineAmount() {
 		return _movie.determineAmount(_daysRented);
 		
-	}	
+	}
+
+	private String toString() {
+		return "\t" + this._movie.getTitle()+ "\t" + String.valueOf(this.determineAmount()) + "\n";
+	}
+
+	private boolean hasBonus(Rental r) {
+		return (this._movie.getPriceCode() == Movie.MovieType.NEW_RELEASE) && this.getDaysRented() > 1;
+		 
+	}
 }
