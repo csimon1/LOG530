@@ -29,16 +29,16 @@ public class Customer {
 			Rental each = (Rental) rentals.nextElement();
 			
 			//determine amounts for each Rental
-			thisAmount = determineAmount(each);
+			thisAmount = each.determineAmount();
 			
 			// add frequent renter points
 			frequentRenterPoints ++;
 			// add bonus for two day new release rental
-			if(hasBonus(each)) frequentRenterPoints ++;
+			if(each.hasBonus()) frequentRenterPoints ++;
 			
 			//show figures for this rental
 			
-			result += showFigure(each,thisAmount);
+			result += each.toString()
 			
 			totalAmount += thisAmount;
 			
@@ -49,21 +49,6 @@ public class Customer {
 		
 
 		return result;
-	}
-
-	
-	
-	private double determineAmount(Rental r) {
-		return r.determineAmount();
-	}
-
-	private String showFigure(Rental r, double rAmount) {
-		return "\t" +r.getMovie().getTitle()+ "\t" + String.valueOf(rAmount) + "\n";
-	}
-
-	private boolean hasBonus(Rental r) {
-		return (r.getMovie().getPriceCode() == Movie.MovieType.NEW_RELEASE) && r.getDaysRented() > 1;
-		 
 	}
 
 	private String addFooter(double totalAmount, int frequentRenterPoints) {
