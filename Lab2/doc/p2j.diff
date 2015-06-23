@@ -1,0 +1,326 @@
+Only in mm_p2j_cleaned/src/mastermind/: Board.java
+Only in mm_p2j_cleaned/src/mastermind/: Code.java
+Only in mm_p2j_cleaned/src/mastermind/: Colour.java
+Only in mm_p2j_base/mastermind/: Default.java
+Only in mm_p2j_cleaned/src/mastermind/: Game.java
+diff -ur mm_p2j_base/mastermind/Mastermind.java mm_p2j_cleaned/src/mastermind/Mastermind.java
+--- mm_p2j_base/mastermind/Mastermind.java	2015-06-22 21:05:10.457513000 -0400
++++ mm_p2j_cleaned/src/mastermind/Mastermind.java	2015-06-19 18:17:46.000000000 -0400
+@@ -1,142 +1,57 @@
++package mastermind;
++
++import java.io.BufferedReader;
++import java.io.IOException;
++import java.io.InputStreamReader;
++import java.util.ArrayList;
++
+ // copyright Sean McCarthy, license GPL v2 or later 
+ 
++/**
++The game of Mastermind
++
++This class provides a function "play" for invoking a new game.
++
++The objective of the game is to guess a code composed of 4 coloured
++pegs. The code can be composed of any combination of the six colours
++(red, green, purple, yellow, white, black), and can include duplicates.
++
++For each guess a result code may be returned composed of black and/or
++white pegs. A black peg indicates a peg of the right colour and in the
++right position. A white peg indicates a peg of the right colour but in
++the wrong position. The arrangement of the pegs does not correspond to
++the pegs in the guess- black pegs will always be shown first, followed
++but white pegs.
++
++The game ends with either a correct guess or after running out of 
++guesses.
++*/
++
+ public class Mastermind { // Line 10
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	
+-	if (re.search("^b", s)"
+-	        The game of Mastermind
+-	
+-	        This class provides a function "play" for invoking a new game.
+-	
+-	        The objective of the game is to guess a code composed of 4 coloured
+-	        pegs. The code can be composed of any combination of the six colours
+-	        (red, green, purple, yellow, white, black), and can include duplicates.
+-	
+-	        For each guess a result code may be returned composed of black and/or
+-	        white pegs. A black peg indicates a peg of the right colour and in the
+-	        right position. A white peg indicates a peg of the right colour but in
+-	        the wrong position. The arrangement of the pegs does not correspond to
+-	        the pegs in the guess- black pegs will always be shown first, followed
+-	        but white pegs.
+-	
+-	        The game ends with either a correct guess or after running out of 
+-	        guesses.
+-	    "null) { // Line 100
+-		return peg.Peg(colour.Colours.black);
+-	} else {
+-		return null;
+-	}
+-	if (re.search("^w", s)public void play(int guesses) { // Line 32
+-		this.greeting();
+-		gm = game.Game(guesses); // Line 34
+-		while !gm.isOver(){ // Line 35
+-			//Guess: 
+-			(gm.getTries()+1);
+-			///
+-			System.out.println(gm.getMaxTries());
+-			gm.makeGuess(this.__readGuess());
+-			System.out.println("--------Board--------");
+-			this.display(gm);
+-			System.out.println("---------------------");
+-		};
+-		if (gm.isWon()) { // Line 42
+-			System.out.println("Congratulations!");
+-		} else {
+-			System.out.println("Secret Code: ");
+-			this.displaySecret(gm);
++
++	public Peg __parseColour(String s) { // Line 89
++		if (s.matches("^b")) { // Line 100
++			return new Peg(Colour.EColour.black);
++		} 
++		if (s.matches("^w")) { // Line 98
++			return new Peg(Colour.EColour.white);
+ 		}
++		if (s.matches("^y")) { // Line 96
++			return new Peg(Colour.EColour.yellow);
++		}
++		if (s.matches("^g")) { // Line 94
++			return new Peg(Colour.EColour.green);
++		}
++		if (s.matches("^p")) { // Line 92
++			return new Peg(Colour.EColour.purple);
++		}
++		if (s.matches("^r")) { // Line 90
++			return new Peg(Colour.EColour.red);
++		}
++		return null;
+ 	}
+-	null) { // Line 98
+-		return peg.Peg(colour.Colours.white);
+-	}
+-	if (re.search("^y", s)public void greeting() { // Line 48
++	
++	public void greeting() { // Line 48
+ 		System.out.println("");
+ 		System.out.println("---------------------");
+ 		System.out.println("Welcome to Mastermind");
+@@ -146,56 +61,81 @@
+ 		System.out.println("red yellow green purple black white");
+ 		System.out.println("");
+ 	}
+-	null) { // Line 96
+-		return peg.Peg(colour.Colours.yellow);
+-	}
+-	if (re.search("^g", s)public void display(Game game) { // Line 58
+-		for (r:game.getBoard().getRows()) { // Line 59
+-			for (p:r.getGuess().getPegs()) { // Line 60
+-				System.out.println(str(colour.getColourName(p.getColour())).rjust(6));
++	
++	public void display(Game game) { // Line 58
++		for (Row r:game.getBoard().getRows()) { // Line 59
++			for (Peg p:r.getGuess().getPegs()) { // Line 60
++				String str = p.getColour().getColourName() ;
++				System.out.print( utils.rjust(str,6));
+ 			};
+-			System.out.println(" | Result:	");
+-			for (p:r.getResult().getPegs()) { // Line 63
+-				System.out.println(str(colour.getColourName(p.getColour())).rjust(6));
++			System.out.print(" | Result:	");
++			for (Peg p:r.getResult().getPegs()) { // Line 63
++				String str = p.getColour().getColourName() ;
++				System.out.print( utils.rjust(str,6));
+ 			};
+ 			System.out.println("");
+-		};
+-	}
+-	null) { // Line 94
+-		return peg.Peg(colour.Colours.green);
++		};	
++		//displaySecret(game);
+ 	}
+-	if (re.search("^p", s)public void displaySecret(Game game) { // Line 67
+-		for (p:game.getSecretCode().getPegs()) { // Line 68
+-			System.out.println(str(colour.getColourName(p.getColour())).rjust(6));
++	
++	public void displaySecret(Game game) { // Line 67
++		for (Peg p:game.getSecretCode().getPegs()) { // Line 68
++			String str = p.getColour().getColourName() ;
++			System.out.print( utils.rjust(str,6));
+ 		};
+ 	}
+-	null) { // Line 92
+-		return peg.Peg(colour.Colours.purple);
+-	}
+-	if (re.search("^r", s)public Code __readGuess() { // Line 71
+-		guessPegs = new ArrayList(); // Line 72
++	
++	public Code __readGuess() { // Line 71
++		ArrayList<Peg> guessPegs = new ArrayList<Peg>(); // Line 72
+ 		System.out.println("Type four (space seperated) colours from:");
+ 		System.out.println("[r]ed [y]ellow [g]reen [p]urple [b]lack [w]hite");
+-		inputOk = false; // Line 76
+-		while !inputOk{ // Line 77
+-			colours = re.split("\s", raw_input("> "), 4); // Line 78
+-			for (c:colours) { // Line 79
+-				if (pegpeg = this.__parseColour(c); // Line 80
+-				null) { // Line 81
+-					guessPegs.append(peg);
++		boolean inputOk = false; // Line 76
++		
++		BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
++		String strin;
++		try {
++
++			while (!inputOk) { // Line 77
++				strin = sc.readLine();
++				String colours[] = strin.split(" ", 4); // Line 78
++				for (String c:colours) { // Line 79
++					Peg pegpeg = __parseColour(c);
++					if (pegpeg != null) { // Line 81 !!INVERSION DE LA conversion loll
++						guessPegs.add(pegpeg);
++					}
++				};
++				inputOk = (guessPegs.size() == 4); // Line 83
++				if (!inputOk) { // Line 84
++					System.out.println("Invalid input, use colours as stated\n");
++					guessPegs.clear(); // Line 86
+ 				}
+ 			};
+-			inputOk = len(guessPegs) == 4; // Line 83
+-			if (!inputOk) { // Line 84
+-				System.out.println("Invalid input, use colours as stated");
+-				guessPegs = new ArrayList(); // Line 86
+-			}
+-		};
+-		return code.Code(guessPegs);
+-	}
+-	null) { // Line 90
+-		return peg.Peg(colour.Colours.red);
++		} catch (IOException e) {
++			// TODO Auto-generated catch block
++			e.printStackTrace();
++		}
++		
++		
++		return new Code(guessPegs);
+ 	}
+-	public void/Peg __parseColour(str s) { // Line 89
++
++	public void play(int guesses) { // Line 32
++		this.greeting();
++		Game gm = new Game(guesses); // Line 34
++		while (!gm.isOver()) { // Line 35
++			//Guess: 
++			System.out.println("Guess : "+(gm.getTries()+1)+"/"+gm.getMaxTries()); // missing dans conversion
++			gm.makeGuess(this.__readGuess());
++			System.out.println("--------Board--------");
++			this.display(gm);
++			System.out.println("---------------------");
++		};
++		if (gm.isWon()) { // Line 42
++			System.out.println("Congratulations!");
++		} else {
++			System.out.println("Secret Code: ");
++			this.displaySecret(gm);
++		}
+ 	}
++
+ }
+Only in mm_p2j_cleaned/src/mastermind/: Peg.java
+Only in mm_p2j_cleaned/src/mastermind/: Row.java
+Only in mm_p2j_cleaned/src/mastermind/: start.java
+Only in mm_p2j_cleaned/src/mastermind/: utils.java
