@@ -1,0 +1,1038 @@
+g++  -O2 -march=native -Wno-deprecated  -I. -I/usr/lib/python2.7/site-packages/shedskin/lib row.cpp peg.cpp mastermind.cpp game.cpp colour.cpp code.cpp board.cpp /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp -lgc -lpcre  -o mastermind
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from row.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from row.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from row.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from row.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+row.cpp:45:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from row.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from row.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+row.cpp:45:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from row.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from row.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+row.cpp:45:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from row.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from peg.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from peg.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from peg.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+peg.cpp: In function ‘void __peg__::__init()’:
+peg.cpp:38:15: warning: converting to non-pointer type ‘__shedskin__::__ss_int {aka int}’ from NULL [-Wconversion-null]
+     default_0 = NULL;
+               ^
+In file included from peg.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+peg.cpp:42:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from peg.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from peg.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+peg.cpp:42:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from peg.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from peg.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+peg.cpp:42:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from peg.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from mastermind.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from mastermind.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from mastermind.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from mastermind.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __peg__::Peg*; __shedskin__::__ss_int = int]’:
+mastermind.cpp:243:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from mastermind.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from mastermind.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+mastermind.cpp:243:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from mastermind.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from mastermind.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+mastermind.cpp:243:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from mastermind.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from mastermind.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+mastermind.cpp:243:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from mastermind.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from game.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from game.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from game.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from game.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+game.cpp:93:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from game.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from game.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+game.cpp:93:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from game.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from game.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+game.cpp:93:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from game.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from colour.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from colour.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from colour.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from colour.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+colour.cpp:74:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from colour.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from colour.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+colour.cpp:74:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from colour.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from colour.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+colour.cpp:74:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from colour.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from code.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from code.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from code.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from code.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::__ss_bool; __shedskin__::__ss_int = int]’:
+code.cpp:138:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from code.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from code.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __peg__::Peg*; __shedskin__::__ss_int = int]’:
+code.cpp:138:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from code.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from code.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+code.cpp:138:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from code.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from code.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+code.cpp:138:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from code.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from code.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+code.cpp:138:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from code.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from board.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from board.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from board.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from board.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __row__::Row*; __shedskin__::__ss_int = int]’:
+board.cpp:51:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from board.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from board.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+board.cpp:51:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from board.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from board.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+board.cpp:51:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from board.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from board.cpp:1:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+board.cpp:51:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from board.cpp:1:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::str*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:917:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:917:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:917:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:917:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/time.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:68:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:68:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::str*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:68:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:68:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::str*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:752:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:752:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:752:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:752:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.hpp:9,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/re.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:1108:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:1108:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:1108:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::str*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:1108:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/random.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:14:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:14:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:14:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.hpp:6,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/math.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:947:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp: In function ‘long int __shedskin__::hasher(T) [with T = void*]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:50: error: ‘intptr_t’ was not declared in this scope
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                  ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp:18:59: error: expected ‘;’ before ‘a’
+ template<> inline long hasher(void *a) { return (intptr_t)a; }
+                                                           ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1290:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp: At global scope:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:83:26: error: ambiguous template specialization ‘__divs<>’ for ‘double __shedskin__::__divs(double, double)’
+ template<> inline double __divs(double a, double b) { return a/b; }
+                          ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:78:35: note: candidates are: template<class A, class B> double __shedskin__::__divs(A, B)
+ template<class A, class B> double __divs(A a, B b);
+                                   ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp:82:21: note:                 template<class A> A __shedskin__::__divs(A, A)
+ template<class A> A __divs(A a, A b);
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp: In function ‘__shedskin__::__ss_int __shedskin__::id(T)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)t;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:574:22: error: expected ‘;’ before ‘t’
+     return (intptr_t)t;
+                      ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:131:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/file.cpp: In member function ‘virtual __shedskin__::__ss_bool __shedskin__::file::isatty()’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/file.cpp:190:20: error: ‘::isatty’ has not been declared
+     return ___bool(::isatty(__ss_fileno()));
+                    ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/file.cpp: In member function ‘virtual void* __shedskin__::file::truncate(int)’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/file.cpp:200:37: error: ‘ftruncate’ was not declared in this scope
+     if(ftruncate(__ss_fileno(), size) == -1)
+                                     ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp: In member function ‘virtual long int __shedskin__::pyobj::__hash__()’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:268:13: error: ‘intptr_t’ was not declared in this scope
+     return (intptr_t)this;
+             ^
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:268:22: error: expected ‘;’ before ‘this’
+     return (intptr_t)this;
+                      ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::tuple2<void*, void*>*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:305:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::tuple2<__shedskin__::str*, __shedskin__::pyobj*>*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:305:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = int; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:305:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::str*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:305:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::complex; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:305:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = __shedskin__::pyobj*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:305:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = double; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:305:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:0:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp: In instantiation of ‘__shedskin__::__ss_int __shedskin__::pyseq<T>::__cmp__(__shedskin__::pyobj*) [with T = void*; __shedskin__::__ss_int = int]’:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:305:1:   required from here
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1232:57: error: ‘___min’ was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     int mnm = ___min(2, 0, this->__len__(), b->__len__());
+                                                         ^
+In file included from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp:1292:0,
+                 from /usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp:3:
+/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp:170:21: note: ‘template<class T> T __shedskin__::___min(int, int, T, T, T, ...)’ declared here, later in the translation unit
+ template<class T> T ___min(int n, int key, T a, T b, T c, ...) { /* XXX */
+                     ^
+Makefile:37: recipe for target 'mastermind' failed
+gmake: *** [mastermind] Error 1

@@ -1,0 +1,26 @@
+called: g++
+	/home/lighta/Downloads/tmp/shedskin-examples-0.9.4/mm
+	g++
+	-O2
+	-march=native
+	-Wno-deprecated
+	-I.
+	-I/usr/lib/python2.7/site-packages/shedskin/lib
+	row.cpp
+	peg.cpp
+	mastermind.cpp
+	game.cpp
+	colour.cpp
+	code.cpp
+	board.cpp
+	/usr/lib/python2.7/site-packages/shedskin/lib/time.cpp
+	/usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp
+	/usr/lib/python2.7/site-packages/shedskin/lib/re.cpp
+	/usr/lib/python2.7/site-packages/shedskin/lib/random.cpp
+	/usr/lib/python2.7/site-packages/shedskin/lib/math.cpp
+	/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp
+	-lgc
+	-lpcre
+	-o
+	mastermind
+

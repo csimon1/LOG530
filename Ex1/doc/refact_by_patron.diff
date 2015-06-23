@@ -1,0 +1,209 @@
+diff --git a/Log530Ex1/src/Customer.java b/Log530Ex1/src/Customer.java
+index 539312b..3546be1 100644
+--- a/Log530Ex1/src/Customer.java
++++ b/Log530Ex1/src/Customer.java
+@@ -2,6 +2,7 @@ import java.util.Enumeration;
+ import java.util.Vector;
+ 
+ 
++
+ public class Customer {
+ 	private String _name;
+ 	
+@@ -11,14 +12,14 @@ public class Customer {
+ 		_name = name;
+ 	}
+ 	
+-	public void addRental(Rental arg){
+-		_rentals.addElement(arg);
++	public void add(Rental rental){
++		_rentals.addElement(rental);
+ 	}
+ 	public String getName() {
+ 		return _name;
+ 	}
+ 	
+-	public String statement(){
++	public String toString(){
+ 		double totalAmount = 0;
+ 		int frequentRenterPoints = 0;
+ 		Enumeration rentals = _rentals.elements();
+@@ -27,39 +28,48 @@ public class Customer {
+ 			double thisAmount = 0;
+ 			Rental each = (Rental) rentals.nextElement();
+ 			
+-			//determine amounts for each line
+-			switch (each.getMovie().getPriceCode()){
+-			case Movie.REGULAR:
+-				thisAmount += 2;
+-				if(each.getDaysRented() > 2)
+-					thisAmount += (each.getDaysRented() - 2)*1.5;
+-				break;
+-			case Movie.NEW_RELEASE:
+-				thisAmount += each.getDaysRented() *3;
+-				break;
+-			case Movie.CHILDRENS:
+-				thisAmount += 1.5;
+-				if(each.getDaysRented() > 3)
+-					thisAmount += (each.getDaysRented() - 3) *1.5;
+-				break;
+-			}
++			//determine amounts for each Rental
++			thisAmount = determineAmount(each);
+ 			
+ 			// add frequent renter points
+ 			frequentRenterPoints ++;
+ 			// add bonus for two day new release rental
+-			if((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1) frequentRenterPoints ++;
++			if(hasBonus(each)) frequentRenterPoints ++;
+ 			
+ 			//show figures for this rental
+-			result += "\t" +each.getMovie().getTitle()+ "\t" + String.valueOf(thisAmount) + "\n";
++			
++			result += showFigure(each,thisAmount);
++			
+ 			totalAmount += thisAmount;
+ 			
+ 		}
+ 		
+-		
+ 		//add footer lines
+-		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
+-		result += "You earned " + String.valueOf(frequentRenterPoints) + "frequent renter points";
+-			
++		result += addFooter(totalAmount,frequentRenterPoints);
++		
++
+ 		return result;
+ 	}
++
++	
++	
++	private double determineAmount(Rental r) {
++		return r.determineAmount();
++	}
++
++	private String showFigure(Rental r, double rAmount) {
++		return "\t" +r.getMovie().getTitle()+ "\t" + String.valueOf(rAmount) + "\n";
++	}
++
++	private boolean hasBonus(Rental r) {
++		return (r.getMovie().getPriceCode() == Movie.MovieType.NEW_RELEASE) && r.getDaysRented() > 1;
++		 
++	}
++
++	private String addFooter(double totalAmount, int frequentRenterPoints) {
++		return "Amount owed is " + String.valueOf(totalAmount) + "\n"
++		+ "You earned " + String.valueOf(frequentRenterPoints) + "frequent renter points";
++	}
++	
++	
+ }
+diff --git a/Log530Ex1/src/Movie.java b/Log530Ex1/src/Movie.java
+index f684284..062c93c 100644
+--- a/Log530Ex1/src/Movie.java
++++ b/Log530Ex1/src/Movie.java
+@@ -1,24 +1,78 @@
+ 
+-public class Movie {
+-	public static final int CHILDRENS = 2;
+-	public static final int REGULAR = 0;
+-	public static final int NEW_RELEASE = 1;
++public abstract class Movie {
++	
++	public static enum MovieType 
++	{
++		CHILDRENS,
++		REGULAR,
++		NEW_RELEASE
++	}
+ 	
+ 	private String _title;
+-	private int _priceCode;
++	private MovieType _priceCode;
+ 	
+-	public Movie(String title, int priceCode){
++	public Movie(String title, MovieType priceCode){
+ 		_title = title;
+ 		_priceCode = priceCode;
+ 	}
+ 	
+-	public int getPriceCode(){
++	public MovieType getPriceCode(){
+ 		return _priceCode;
+ 	}
+-	public void setPricCode(int arg){
+-		_priceCode = arg;
++	public void setPricCode(MovieType priceCode){
++		_priceCode = priceCode;
+ 	}
+ 	public String getTitle(){
+ 		return _title;
+ 	};
++	
++	public abstract double determineAmount(int _daysRented);
++	
++	
++	public class ChildrensMovie extends Movie
++	{
++
++		public ChildrensMovie(String title, MovieType priceCode) {
++			super(title, priceCode);
++		}
++		
++		public double determineAmount(int _daysRented) {
++			double amount = 1.5;
++			if(_daysRented > 3)
++				amount += (_daysRented - 3) *1.5;
++			return amount;
++		}
++		
++	}
++	
++	public class RegularMovie extends Movie
++	{
++
++		public RegularMovie(String title, MovieType priceCode) {
++			super(title, priceCode);
++		}
++		
++		public double determineAmount(int _daysRented) {
++			double amount = 2;
++			if(_daysRented > 2)
++				amount += (_daysRented - 2)*1.5;
++			return amount;
++		}
++	}
++
++	public class NewReleaseMovie extends Movie
++	{
++
++		public NewReleaseMovie(String title, MovieType priceCode) {
++			super(title, priceCode);
++		}
++		
++		public double determineAmount(int _daysRented) {
++			return _daysRented *3;
++		}
++	}
++	
++	
++	
++	
+ }
+\ No newline at end of file
+diff --git a/Log530Ex1/src/Rental.java b/Log530Ex1/src/Rental.java
+index 913f116..03f0541 100644
+--- a/Log530Ex1/src/Rental.java
++++ b/Log530Ex1/src/Rental.java
+@@ -13,5 +13,10 @@ class Rental {
+ 	}
+ 	public Movie getMovie() {
+ 		return _movie;
++	}
++
++	public double determineAmount() {
++		return _movie.determineAmount(_daysRented);
++		
+ 	}	
+ }

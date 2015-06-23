@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="lib"
+                   displayName="lib"
+                   projectFiles="true"
+                   root="/usr/lib/python2.7/site-packages/shedskin/lib">
+      <logicalFolder name="builtin" displayName="builtin" projectFiles="true">
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/bool.cpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/bool.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/compare.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/complex.cpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/complex.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/dict.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/exception.cpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/exception.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/extmod.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/file.cpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/file.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/format.cpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/format.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.cpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/hash.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/iter.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/list.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.cpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/set.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/str.cpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/str.hpp</itemPath>
+        <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin/tuple.hpp</itemPath>
+      </logicalFolder>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/builtin.hpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/math.cpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/math.hpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/random.cpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/random.hpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/re.cpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/re.hpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/sys.hpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/time.cpp</itemPath>
+      <itemPath>/usr/lib/python2.7/site-packages/shedskin/lib/time.hpp</itemPath>
+    </logicalFolder>
+    <df root="." name="0">
+      <in>board.cpp</in>
+      <in>code.cpp</in>
+      <in>colour.cpp</in>
+      <in>game.cpp</in>
+      <in>mastermind.cpp</in>
+      <in>peg.cpp</in>
+      <in>row.cpp</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-O2 -march=native"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+          <ccTool>
+            <incDir>
+              <pElem>.</pElem>
+              <pElem>/usr/lib/python2.7/site-packages/shedskin/lib</pElem>
+            </incDir>
+          </ccTool>
+        </makeTool>
+      </makefileType>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin/bool.cpp"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin/complex.cpp"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin/exception.cpp"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin/file.cpp"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin/format.cpp"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin/function.cpp"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin/math.cpp"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/builtin/str.cpp"
+            ex="true"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/math.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/random.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/re.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/sys.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="/usr/lib/python2.7/site-packages/shedskin/lib/time.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="board.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="code.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="colour.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="game.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="mastermind.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="peg.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+      <item path="row.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
