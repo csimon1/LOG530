@@ -1,0 +1,29 @@
+SHEDSKIN_LIBDIR=/home/lighta/Downloads/tmp/shedskin-0.9.4/shedskin/lib
+CC=g++
+CCFLAGS=-O2 -march=native -Wno-deprecated $(CPPFLAGS) -I. -I${SHEDSKIN_LIBDIR}
+LFLAGS=-lgc -lpcre $(LDFLAGS)
+
+CPPFILES=/home/lighta/Downloads/tmp/shedskin-0.9.4/tests/69.cpp \
+	${SHEDSKIN_LIBDIR}/re.cpp \
+	${SHEDSKIN_LIBDIR}/builtin.cpp
+
+HPPFILES=/home/lighta/Downloads/tmp/shedskin-0.9.4/tests/69.hpp \
+	${SHEDSKIN_LIBDIR}/re.hpp \
+	${SHEDSKIN_LIBDIR}/builtin.hpp
+
+all:	69
+
+69:	$(CPPFILES) $(HPPFILES)
+	$(CC)  $(CCFLAGS) $(CPPFILES) $(LFLAGS) -o 69
+
+69_prof:	$(CPPFILES) $(HPPFILES)
+	$(CC) -pg -ggdb $(CCFLAGS) $(CPPFILES) $(LFLAGS) -o 69_prof
+
+69_debug:	$(CPPFILES) $(HPPFILES)
+	$(CC) -g -ggdb $(CCFLAGS) $(CPPFILES) $(LFLAGS) -o 69_debug
+
+clean:
+	rm -f 69 69_prof 69_debug
+
+.PHONY: all clean
+

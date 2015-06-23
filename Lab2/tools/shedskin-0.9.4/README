@@ -1,0 +1,8 @@
+sudo python setup.py install
+shedskin test.py
+make
+./test
+
+see the online documentation for details:
+
+http://code.google.com/p/shedskin/wiki/docs
