@@ -1,0 +1,241 @@
+diff --git a/tracer/trace.py b/tracer/trace.py
+index fe5e528..4fac20e 100644
+--- a/tracer/trace.py
++++ b/tracer/trace.py
+@@ -2,11 +2,11 @@
+         Written By:
+                 Chris Humphreys
+                 Email: < chris (--AT--) habitualcoder [--DOT--] com >
+-                Jan Weiß
++                Jan Weib
+                 Email: < jan (--AT--) geheimwerk [--DOT--] de >
+ 
+         Copyright 2010 Chris Humphreys
+-        Copyright 2012-2013 Jan Weiß
++        Copyright 2012-2013 Jan Weib
+ 
+         This program is free software; you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
+@@ -31,9 +31,9 @@ from collections import OrderedDict # Requires Python 2.7+
+ import pprint
+ import cPickle
+ 
+-from gameengine import * # Change this to import everything from the file containing main().
++from mastermind import * # Change this to import everything from the file containing main().
+ 
+-TRACE_BASE = "/home/chris/ab/gamemenu.py" # Change this to the file you want to trace.
++TRACE_BASE = "/home/lighta/Documents/ETS/LOG530/git/Lab2/tools/p2j/tracer/mastermind.py" # Change this to the file you want to trace.
+ 
+ TRACE_FILE_EXT='.trace'
+ TRACE_RETURN_FILE_EXT='.return-trace'
+@@ -222,7 +222,8 @@ if __name__ == '__main__':
+ 	trace_data = unpickle_data(targeted_file_path + TRACE_PICKLED_FILE_EXT)
+ 	trace_return_data = unpickle_data(targeted_file_path + TRACE_PICKLED_RETURN_FILE_EXT)
+ 
+-	main(sys.argv[1:])
++	#main(sys.argv[1:])
++	main() #our prog have no arg (lighta)
+ 
+ 	#pp = pprint.PrettyPrinter(indent=4)
+ 	#pp.pprint(trace_data)
+diff --git a/translator/args.py b/translator/args.py
+index 0703fae..6fe5c0f 100644
+--- a/translator/args.py
++++ b/translator/args.py
+@@ -2,11 +2,11 @@
+         Written By:
+                 Chris Humphreys
+                 Email: < chris (--AT--) habitualcoder [--DOT--] com >
+-                Jan Weiß
++                Jan Weib
+                 Email: < jan (--AT--) geheimwerk [--DOT--] de >
+ 
+         Copyright 2010 Chris Humphreys
+-        Copyright 2012-2013 Jan Weiß
++        Copyright 2012-2013 Jan Weib
+  
+         This program is free software; you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
+diff --git a/translator/parser.py b/translator/parser.py
+index ba0cffe..a598b4f 100644
+--- a/translator/parser.py
++++ b/translator/parser.py
+@@ -2,11 +2,11 @@
+         Written By:
+                 Chris Humphreys
+                 Email: < chris (--AT--) habitualcoder [--DOT--] com >
+-                Jan Weiß
++                Jan Weib
+                 Email: < jan (--AT--) geheimwerk [--DOT--] de >
+ 
+         Copyright 2010 Chris Humphreys
+-        Copyright 2012-2013 Jan Weiß
++        Copyright 2012-2013 Jan Weib
+  
+         This program is free software; you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
+diff --git a/translator/test.py b/translator/test.py
+index e1f13ff..b2e4a21 100644
+--- a/translator/test.py
++++ b/translator/test.py
+@@ -2,11 +2,11 @@
+         Written By:
+                 Chris Humphreys
+                 Email: < chris (--AT--) habitualcoder [--DOT--] com >
+-                Jan Weiß
++                Jan Weib
+                 Email: < jan (--AT--) geheimwerk [--DOT--] de >
+ 
+         Copyright 2010 Chris Humphreys
+-        Copyright 2012-2013 Jan Weiß
++        Copyright 2012-2013 Jan Weib
+  
+         This program is free software; you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
+@@ -637,7 +637,7 @@ break
+ 
+ 
+ if __name__ == '__main__':
+-    unittest.main()
++	unittest.main()
+ 
+ 
+ 
+diff --git a/translator/trans2.py b/translator/trans2.py
+index bb6b847..5aa09b7 100644
+--- a/translator/trans2.py
++++ b/translator/trans2.py
+@@ -2,11 +2,11 @@
+         Written By:
+                 Chris Humphreys
+                 Email: < chris (--AT--) habitualcoder [--DOT--] com >
+-                Jan Weiß
++                Jan Weib
+                 Email: < jan (--AT--) geheimwerk [--DOT--] de >
+ 
+         Copyright 2010 Chris Humphreys
+-        Copyright 2012-2013 Jan Weiß
++        Copyright 2012-2013 Jan Weib
+  
+         This program is free software; you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
+diff --git a/translator/transbits.py b/translator/transbits.py
+index 582fe42..2aa863d 100644
+--- a/translator/transbits.py
++++ b/translator/transbits.py
+@@ -2,11 +2,11 @@
+         Written By:
+                 Chris Humphreys
+                 Email: < chris (--AT--) habitualcoder [--DOT--] com >
+-                Jan Weiß
++                Jan Weib
+                 Email: < jan (--AT--) geheimwerk [--DOT--] de >
+ 
+         Copyright 2010 Chris Humphreys
+-        Copyright 2012-2013 Jan Weiß
++        Copyright 2012-2013 Jan Weib
+  
+         This program is free software; you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
+@@ -155,7 +155,7 @@ class JavaAssign(JavaBase):
+ 		self.emit_base(e)
+ 
+ 		#Check whether target handles assignment e.g. s['d'] = val which becomes s.get('d', val)
+-        swallowAssign = getattr(self.target, "swallows_assign", None)
++		swallowAssign = getattr(self.target, "swallows_assign", None)
+ 		if swallowAssign:
+ 			if swallowAssign():
+ 				#allow the target to process the assignment...
+@@ -205,7 +205,7 @@ class JavaBinOp(JavaBase):
+ 		self.emit_base(e)
+ 
+ 		#Check whether op handles arguments e.g. 
+-        	swallowsBinOp = getattr(self.op, "swallows_binop", None)
++		swallowsBinOp = getattr(self.op, "swallows_binop", None)
+ 		if swallowsBinOp and swallowsBinOp(self.left) :
+ 			self.op.emit_with_args(self.left, self.right, e)
+ 		else:
+@@ -576,7 +576,7 @@ class JavaCompare(JavaBase):
+ 	def emit(self, e):
+ 		self.emit_base(e)
+ 		#Check whether op handles the arguments e.g. 'd' in s which becomes s.contains('d')
+-        	swallowArguments = getattr(self.ops, "swallows_arguments", None)
++		swallowArguments = getattr(self.ops, "swallows_arguments", None)
+ 		if swallowArguments:
+ 			if swallowArguments():
+ 				#allow the target to process the arguments...
+@@ -891,21 +891,21 @@ class JavaBreak():
+ 		return False
+ 
+ class JavaComprehension(JavaBase):
+-    def __init__(self, target, iterator, body):
+-        JavaBase.__init__(self)
+-        self.target = target
+-        self.iterator = iterator
+-        self.body = body
+-
+-    def emit(self, e):
+-        self.emit_base(e)
+-        e.emit("list_comprehension (")
+-        self.target.emit(e)
+-        e.emit(" : ")
+-        self.iterator.emit(e)
+-        self.emit_line_with_comment(e, ") {")
+-        e.indentation_level_up()
+-        self.body.emit(e)
+-        e.indentation_level_down()
+-        e.emit("}")
++	def __init__(self, target, iterator, body):
++		JavaBase.__init__(self)
++		self.target = target
++		self.iterator = iterator
++		self.body = body
++
++	def emit(self, e):
++		self.emit_base(e)
++		e.emit("list_comprehension (")
++		self.target.emit(e)
++		e.emit(" : ")
++		self.iterator.emit(e)
++		self.emit_line_with_comment(e, ") {")
++		e.indentation_level_up()
++		self.body.emit(e)
++		e.indentation_level_down()
++		e.emit("}")
+ 
+diff --git a/translator/translate.py b/translator/translate.py
+index 74aef00..4414e2d 100644
+--- a/translator/translate.py
++++ b/translator/translate.py
+@@ -2,11 +2,11 @@
+         Written By:
+                 Chris Humphreys
+                 Email: < chris (--AT--) habitualcoder [--DOT--] com >
+-                Jan Weiß
++                Jan Weib
+                 Email: < jan (--AT--) geheimwerk [--DOT--] de >
+ 
+         Copyright 2010 Chris Humphreys
+-        Copyright 2012-2013 Jan Weiß
++        Copyright 2012-2013 Jan Weib
+  
+         This program is free software; you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
+diff --git a/translator/visitor.py b/translator/visitor.py
+index 08efedc..02ca720 100644
+--- a/translator/visitor.py
++++ b/translator/visitor.py
+@@ -2,11 +2,11 @@
+         Written By:
+                 Chris Humphreys
+                 Email: < chris (--AT--) habitualcoder [--DOT--] com >
+-                Jan Weiß
++                Jan Weib
+                 Email: < jan (--AT--) geheimwerk [--DOT--] de >
+ 
+         Copyright 2010 Chris Humphreys
+-        Copyright 2012-2013 Jan Weiß
++        Copyright 2012-2013 Jan Weib
+  
+         This program is free software; you can redistribute it and/or modify
+         it under the terms of the GNU General Public License as published by
