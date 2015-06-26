@@ -1,19 +1,22 @@
 #include "builtin.hpp"
 #include "colour.hpp"
 
+
 /**
- copyright Sean McCarthy, license GPL v2 or later 
+ * Class Colours : Association d'une couleur a un chiffre pour facilite les comparaison
+ * copyright Sean McCarthy, license GPL v2 or later 
 */
 
 namespace __colour__ {
 
-str *const_0, *const_1, *const_2, *const_3, *const_4, *const_5;
+str *const_0, *const_1, *const_2, *const_3, *const_4, *const_5; //nom des differentes couleurs
+str *__name__;                                                  //nom de la class
 
-
-str *__name__;
-
-
-
+/**
+ * Retourne le nom d'une couleur pour un index donnee
+ * @param i
+ * @return 
+ */
 str *getColourName(__ss_int i) {
     
     if ((i==0)) {
@@ -51,6 +54,9 @@ __ss_int Colours::white;
 __ss_int Colours::red;
 __ss_int Colours::black;
 
+/**
+ * Constructeur des couleur
+ */
 void Colours::__static__() {
     numberOfColours = 6;
     red = 0;
@@ -61,6 +67,9 @@ void Colours::__static__() {
     black = 5;
 }
 
+/**
+ * Constructeur du package
+ */
 void __init() {
     const_0 = new str("red");
     const_1 = new str("green");
@@ -68,7 +77,6 @@ void __init() {
     const_3 = new str("yellow");
     const_4 = new str("white");
     const_5 = new str("black");
-
     __name__ = new str("colour");
 
     cl_Colours = new class_("Colours");

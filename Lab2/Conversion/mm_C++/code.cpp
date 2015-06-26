@@ -6,20 +6,27 @@
 #include "peg.hpp"
 #include "colour.hpp"
 
+/**
+ * Class Code : Un code est un ensemble de 4 (par defaut) pions qui forme une combinaison
+ * copyright Sean McCarthy, license GPL v2 or later 
+*/
+
 namespace __code__ {
 
+str *__name__;                      //nom de la class
+class_ *cl_Code;                    //class contenue
 
-str *__name__;
-
-
-list<__peg__::Peg *> * default_0;
-
+list<__peg__::Peg *> * default_0;   //liste de pions
 
 /**
- copyright Sean McCarthy, license GPL v2 or later 
-*/
-class_ *cl_Code;
-
+ * On compare le code donne par rapport au code secret et genere un "Code" resultant.
+ * Le code resultant est contitue de :
+ *  -1 pions blanc par pion correct mais mal place.
+ *  -1 pions noir par pion correct et bien place.
+ * Le code resultant ne doit pas respecte les indexs 
+ * @param code : code devinez
+ * @return code resultat
+ */
 Code *Code::compare(Code *code) {
     list<__peg__::Peg *> *resultPegs;
     list<__ss_bool> *guessUsed, *secretUsed;
@@ -83,11 +90,20 @@ Code *Code::compare(Code *code) {
     return (new Code(resultPegs));
 }
 
+/**
+ * Retourne la liste de pions constituant le code
+ * @return list<__peg__::Peg *>
+ */
 list<__peg__::Peg *> *Code::getPegs() {
-    
     return this->__pegList;
 }
 
+/**
+ * Fonction pour verifier qu'un Code est equivalent a un autre.
+ * On verifie simplement que la couleur d'un pions est egale a un autre pour l'emplacement donne.
+ * @param code
+ * @return 
+ */
 __ss_bool Code::equals(Code *code) {
     list<__peg__::Peg *> *c1;
     __ss_int __2, __3, i;
@@ -103,6 +119,11 @@ __ss_bool Code::equals(Code *code) {
     return True;
 }
 
+/**
+ * Genere un code aleatoire de taille codeSize
+ * @param codeSize : Taille du code a genere
+ * @return Code aleatoire
+ */
 void *Code::setRandomCode(__ss_int codeSize) {
     __ss_int __0, __1, i;
     __peg__::Peg *x;
@@ -121,19 +142,22 @@ void *Code::setRandomCode(__ss_int codeSize) {
     return NULL;
 }
 
+/**
+ * Constructeur d'un code par defaut
+ * @param __pegList
+ * @return 
+ */
 void *Code::__init__(list<__peg__::Peg *> *__pegList) {
-    
     this->__defaultCodeSize = 4;
     this->__pegList = __pegList;
     return NULL;
 }
 
+/**
+ * Constructeur du namespace
+ */
 void __init() {
     __name__ = new str("code");
-
-    /**
-     copyright Sean McCarthy, license GPL v2 or later 
-    */
     default_0 = NULL;
     cl_Code = new class_("Code");
 }

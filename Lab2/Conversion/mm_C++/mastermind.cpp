@@ -12,20 +12,24 @@
 #include "peg.hpp"
 #include "game.hpp"
 
+/** 
+ * classe Mastermind : Representation d'une partie. 
+ * Une partie constinue un ensemble d'essai par un joueur pour devinier un code secret.
+ * La partie finit lorsque le joueur trouve le code secret ou atteint le nombre limite d'essais
+ copyright Sean McCarthy, license GPL v2 or later 
+*/
+
 namespace __mastermind__ {
 
 str *const_0, *const_1, *const_10, *const_11, *const_12, *const_13, *const_14, *const_15, *const_16, *const_17, *const_18, *const_19, *const_2, *const_20, *const_21, *const_22, *const_23, *const_3, *const_4, *const_5, *const_6, *const_7, *const_8, *const_9;
-
-
 str *__name__;
-
-
-
-/**
- copyright Sean McCarthy, license GPL v2 or later 
-*/
 class_ *cl_Mastermind;
 
+/**
+ * Demarrage d'une partie
+ * @param guesses : nombre d'essais max
+ * @return 
+ */
 void *Mastermind::play(__ss_int guesses) {
     __game__::Game *gm;
 
@@ -49,6 +53,10 @@ void *Mastermind::play(__ss_int guesses) {
     return NULL;
 }
 
+/**
+ * Affichage du msg de bienvenue
+ * @return 
+ */
 void *Mastermind::greeting() {
     
     print2(NULL,0,1, const_6);
@@ -62,6 +70,10 @@ void *Mastermind::greeting() {
     return NULL;
 }
 
+/**
+ * Lecture de l'entree clavier pour avoir un 'code devinez'
+ * @return 
+ */
 __code__::Code *Mastermind::__readGuess() {
     list<str *> *__45, *colours;
     __peg__::Peg *peg;
@@ -96,6 +108,11 @@ __code__::Code *Mastermind::__readGuess() {
     return (new __code__::Code(guessPegs));
 }
 
+/**
+ * Parcour de l'entree clavier (string) obtenue pour extraire les couleurs
+ * @param s
+ * @return 
+ */
 __peg__::Peg *Mastermind::__parseColour(str *s) {
     
     if ((__re__::search(const_15, s, 0)!=NULL)) {
@@ -122,6 +139,11 @@ __peg__::Peg *Mastermind::__parseColour(str *s) {
     return 0;
 }
 
+/**
+ * Affiche de l'evolution du jeux
+ * @param game
+ * @return 
+ */
 void *Mastermind::display(__game__::Game *game) {
     list<__row__::Row *> *__21;
     list<__peg__::Peg *>::for_in_loop __30, __36;
@@ -155,6 +177,11 @@ void *Mastermind::display(__game__::Game *game) {
     return NULL;
 }
 
+/**
+ * Affichage du code secret
+ * @param game
+ * @return 
+ */
 void *Mastermind::displaySecret(__game__::Game *game) {
     list<__peg__::Peg *>::for_in_loop __42;
     list<__peg__::Peg *> *__39;
@@ -174,7 +201,6 @@ void *Mastermind::displaySecret(__game__::Game *game) {
 
 /**
 Instantiate mastermind and invoke play method to play game
-
 */
 void *__ss_main() {
     Mastermind *m;
@@ -190,6 +216,9 @@ void *__ss_main() {
     return NULL;
 }
 
+/**
+ * Init namespace
+ */
 void __init() {
     const_0 = new str("Guess: ");
     const_1 = __char_cache[47];;
@@ -233,6 +262,12 @@ void __init() {
 
 } // module namespace
 
+/**
+ * Point d'entree du programme
+ * @param __ss_argc
+ * @param __ss_argv
+ * @return 
+ */
 int main(int __ss_argc, char **__ss_argv) {
     __shedskin__::__init();
     __math__::__init();
