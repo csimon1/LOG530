@@ -10,6 +10,9 @@ import org.junit.Test;
 
 public class EngineTest {
 
+	private Engine eng;
+	private static int rpm = 3000;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -20,6 +23,7 @@ public class EngineTest {
 
 	@Before
 	public void setUp() throws Exception {
+		eng = new Engine(); 
 	}
 
 	@After
@@ -28,7 +32,8 @@ public class EngineTest {
 
 	@Test
 	public final void testGetRpm() {
-		fail("Not yet implemented"); // TODO
+		eng.setRpm(rpm);
+		assertEquals(rpm, eng.getRpm());
 	}
 
 }

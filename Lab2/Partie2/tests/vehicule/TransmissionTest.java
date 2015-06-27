@@ -10,6 +10,8 @@ import org.junit.Test;
 
 public class TransmissionTest {
 
+	private Transmission transm;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -20,6 +22,7 @@ public class TransmissionTest {
 
 	@Before
 	public void setUp() throws Exception {
+		transm = new Transmission();
 	}
 
 	@After
@@ -28,17 +31,23 @@ public class TransmissionTest {
 
 	@Test
 	public final void testGetCurrentGear() {
-		fail("Not yet implemented"); // TODO
+		transm.setCurrentGear(2);
+		assertEquals(2, transm.getCurrentGear());
+		
+		transm.setCurrentGear(-52);
+		assertNotEquals(-52, transm.getCurrentGear());
 	}
 
 	@Test
 	public final void testGetCurrentGearObj() {
-		fail("Not yet implemented"); // TODO
+		transm.setCurrentGear(Gear.FIRST);
+		assertEquals(Gear.FIRST, transm.getCurrentGearObj());
 	}
 
 	@Test
 	public final void testGetDifferentialRatio() {
-		fail("Not yet implemented"); // TODO
+		transm.setDifferentialRatio(4.041);
+		assertEquals(4.041, transm.getDifferentialRatio(),0.0);
 	}
 
 }
