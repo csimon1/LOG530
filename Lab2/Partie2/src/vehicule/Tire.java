@@ -10,8 +10,8 @@ package vehicule;
 public class Tire {
 	protected double diameter;
 	
-	public Tire() {
-		diameter = 30;
+	public Tire(double diameter) {
+		this.diameter = diameter;
 	}
 
 	public double getDiameter() {

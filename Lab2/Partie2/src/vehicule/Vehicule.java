@@ -3,13 +3,13 @@ package vehicule;
 public class Vehicule {
 	protected Transmission transmission = null;
 	protected Engine engine = null;
-	protected double tireSizeDiameter = 0.5;
+	/*protected double tireSizeDiameter = 0.5;*/
 	protected Tire tire;
 	
 	public Vehicule(){
 		transmission = new Transmission();
 		engine = new Engine();
-		tire = new Tire();
+		tire = new Tire(0.5);
 	}
 	
 	public Transmission getTransmission() {
@@ -28,15 +28,27 @@ public class Vehicule {
 	 */
 	@Deprecated
 	public double getTireDiameter() {
-		return tireSizeDiameter;
+		return tire.getDiameter();
 	}
 	
 	public Tire getTire() {
 		return tire;
 	}
 	
+	public void setTire(Tire tire) {
+		this.tire = tire;
+	}
+	
+	/**
+	 * use instead {@link #setTire(Tire)} method.
+	 * @deprecated
+	 * @param tireSize
+	 */
+	@Deprecated
 	public void setTireSize(double tireSize) {
-		this.tireSizeDiameter = tireSize;
+		this.tire = new Tire(tireSize);
 	}	
+	
+	
 	
 }
