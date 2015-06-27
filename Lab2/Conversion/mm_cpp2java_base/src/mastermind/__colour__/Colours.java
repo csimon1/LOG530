@@ -20,6 +20,7 @@ public class Colours {
 		yellow = 3;
 		white = 4;
 		black = 5;
+		
 	}
 	
 	public static void __init() {
