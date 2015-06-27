@@ -1,4 +1,4 @@
-package __peg__;
+package mastermind.__peg__;
 
 import __shedskin__.*;
 

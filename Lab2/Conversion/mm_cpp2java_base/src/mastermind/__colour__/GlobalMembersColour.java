@@ -1,4 +1,4 @@
-package __colour__;
+package mastermind.__colour__;
 
 import __shedskin__.*;
 

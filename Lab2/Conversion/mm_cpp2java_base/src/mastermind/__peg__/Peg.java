@@ -1,4 +1,4 @@
-package __peg__;
+package mastermind.__peg__;
 
 //C++ TO JAVA CONVERTER NOTE: Java has no need of forward class declarations:
 //class Peg;

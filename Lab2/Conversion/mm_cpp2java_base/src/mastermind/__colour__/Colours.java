@@ -1,4 +1,4 @@
-package __colour__;
+package mastermind.__colour__;
 
 public class Colours {
 	public static int purple = 0;
