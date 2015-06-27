@@ -135,8 +135,6 @@ public class TripTest {
 
 	@Test
 	public void testGetExpectedTripDuration_tR() {
-
-		assert (t1.getExpectedTripDuration() < t5.getExpectedTripDuration());
 		assertEquals(
 				generateExpectedResult(dist, rpm, tireSize,GearTest.REVERSE_RATIO,diffRatio),
 				tr.getExpectedTripDuration(),
@@ -146,10 +144,8 @@ public class TripTest {
 	public void testGetExpectedTripDuration_t0_AfterRefactor() {
 		assertEquals(
 				generateExpectedResult(dist, rpm, tireSize,	Gear.NEUTRAL.getRatio(),diffRatio), 
-				t0.getExpectedTripDuration(),
+				t0_AfterRefactor.getExpectedTripDuration(),
 				0.01);
-		
-		
 	}
 	
 
@@ -157,7 +153,7 @@ public class TripTest {
 	public void testGetExpectedTripDuration_t1_AfterRefactor() {
 		assertEquals(
 				generateExpectedResult(dist, rpm, tireSize,Gear.FIRST.getRatio(),diffRatio),
-				t1.getExpectedTripDuration(),
+				t1_AfterRefactor.getExpectedTripDuration(),
 				0.01);
 	}
 
@@ -165,7 +161,7 @@ public class TripTest {
 	public void testGetExpectedTripDuration_t2_AfterRefactor() {
 		assertEquals(
 				generateExpectedResult(dist, rpm, tireSize,Gear.SECOND.getRatio(),diffRatio),
-				t2.getExpectedTripDuration(),
+				t2_AfterRefactor.getExpectedTripDuration(),
 				0.01);
 	}
 
@@ -173,7 +169,7 @@ public class TripTest {
 	public void testGetExpectedTripDuration_t3_AfterRefactor() {
 		assertEquals(
 				generateExpectedResult(dist, rpm, tireSize,Gear.THIRD.getRatio(),diffRatio),
-				t3.getExpectedTripDuration(),
+				t3_AfterRefactor.getExpectedTripDuration(),
 				0.01);
 	}
 
@@ -181,7 +177,7 @@ public class TripTest {
 	public void testGetExpectedTripDuration_t4_AfterRefactor() {
 		assertEquals(
 				generateExpectedResult(dist, rpm, tireSize,Gear.FOURTH.getRatio(),diffRatio),
-				t4.getExpectedTripDuration(),
+				t4_AfterRefactor.getExpectedTripDuration(),
 				0.01);
 	}
 
@@ -189,7 +185,7 @@ public class TripTest {
 	public void testGetExpectedTripDuration_t5_AfterRefactor() {
 		assertEquals(
 				generateExpectedResult(dist, rpm, tireSize,Gear.FIFTH.getRatio(),diffRatio),
-				t5.getExpectedTripDuration(),
+				t5_AfterRefactor.getExpectedTripDuration(),
 				0.01);
 	}
 
@@ -197,7 +193,7 @@ public class TripTest {
 	public void testGetExpectedTripDuration_tR_AfterRefactor() {
 		assertEquals(
 				generateExpectedResult(dist, rpm, tireSize,Gear.REVERSE.getRatio(),diffRatio),
-				tr.getExpectedTripDuration(),
+				tr_AfterRefactor.getExpectedTripDuration(),
 				0.01);
 	}
 
@@ -222,7 +218,6 @@ public class TripTest {
 		assert (t3_AfterRefactor.getExpectedTripDuration() < t4_AfterRefactor.getExpectedTripDuration());
 		assert (t4_AfterRefactor.getExpectedTripDuration() < t5_AfterRefactor.getExpectedTripDuration());
 	}
-
 	
 	private double generateExpectedResult(int dist, double rpm,	double tireSize, double gearRatio, double diffRatio) {
 		return dist / (( (tireSize * Math.PI) * ((rpm / gearRatio) / diffRatio) * .06));
