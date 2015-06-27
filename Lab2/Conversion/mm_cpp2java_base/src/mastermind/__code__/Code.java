@@ -1,5 +1,7 @@
 package mastermind.__code__;
 
+import java.util.Random;
+
 import mastermind.__colour__.Colours;
 import mastermind.__peg__.Peg;
 
@@ -18,11 +20,11 @@ Class representing a collection of pegs
 	private Code() {
 	}
 	
-	private Code(java.util.LinkedList<Peg> __pegList) {
+	public Code(java.util.LinkedList<Peg> __pegList) {
 		__init__(__pegList);
 	}
 	
-	private final Code compare(Code code) {
+	public final Code compare(Code code) throws Exception {
 		java.util.LinkedList<Peg> resultPegs;
 		java.util.LinkedList<Boolean> guessUsed;
 		java.util.LinkedList<Boolean> secretUsed;
@@ -33,10 +35,10 @@ Class representing a collection of pegs
 		secretUsed = (new java.util.LinkedList<Boolean>());
 		guessUsed = (new java.util.LinkedList<Boolean>());
 		count = 0;
-		codeLength = len(this.__pegList);
+		codeLength = this.__pegList.size();
 
 		if (1 == 0) {
-			__throw_range_step_zero();
+			throw new Exception("range() step argument must not be zero");
 		}
 		for (__4 = 0, __5 = codeLength; ; __4 += 1) {
 			if (1 >= 0) {
@@ -48,8 +50,8 @@ Class representing a collection of pegs
 					break;
 			}
 			i = __4;
-			secretUsed.append(False);
-			guessUsed.append(False);
+			secretUsed.add(false);
+			guessUsed.add(false);
 		}
 
 		/**
@@ -58,7 +60,7 @@ Class representing a collection of pegs
 		*/
 
 		if (1 == 0) {
-			__throw_range_step_zero();
+			throw new Exception("range() step argument must not be zero");
 		}
 		for (__6 = 0, __7 = codeLength; ; __6 += 1) {
 			if (1 >= 0) {
@@ -70,9 +72,9 @@ Class representing a collection of pegs
 					break;
 			}
 			i = __6;
-			if (((this.__pegList).get(i)).equals((code.getPegs()).__getfast__(i))) {
-				secretUsed.__setitem__(i, true);
-				guessUsed.__setitem__(i, true);
+			if (((this.__pegList).get(i)).equals((code.getPegs()).get(i))) {
+				secretUsed.add(i, true);
+				guessUsed.add(i, true);
 				resultPegs.add((new Peg(Colours.black)));
 				count = (count + 1);
 			}
@@ -92,7 +94,7 @@ Class representing a collection of pegs
 		if ((count < (codeLength - 1))) {
 
 			if (1 == 0) {
-				__throw_range_step_zero();
+				throw new Exception("range() step argument must not be zero");
 			}
 			for (__8 = 0, __9 = codeLength; ; __8 += 1) {
 				if (1 >= 0) {
@@ -109,7 +111,7 @@ Class representing a collection of pegs
 				}
 
 				if (1 == 0) {
-					__throw_range_step_zero();
+					throw new Exception("range() step argument must not be zero");
 				}
 				for (__10 = 0, __11 = codeLength; ; __10 += 1) {
 					if (1 >= 0) {
@@ -121,10 +123,10 @@ Class representing a collection of pegs
 							break;
 					}
 					j = __10;
-					if (((i != j) && (__mbool(!(secretUsed.get(j)))) && (__mbool(!(guessUsed.get(i)))) && ((this.__pegList).get(j)).equals((code.getPegs()).__getfast__(i)))) {
+					if (((i != j) && (!(secretUsed.get(j)))) && (!(guessUsed.get(i))) && ((this.__pegList).get(j)).equals((code.getPegs()).get(i))) {
 						resultPegs.add((new Peg(Colours.white)));
-						secretUsed.__setitem__(j, true);
-						guessUsed.__setitem__(i, true);
+						secretUsed.add(j, true);
+						guessUsed.add(i, true);
 					}
 				}
 
@@ -133,11 +135,11 @@ Class representing a collection of pegs
 		}
 		return (new Code(resultPegs));
 	}
-	private final java.util.LinkedList<__peg__.Peg > getPegs() {
+	public final java.util.LinkedList<Peg> getPegs() {
 
 		return this.__pegList;
 	}
-	private final boolean equals(Code code) {
+	private final boolean equals(Code code) throws Exception {
 		java.util.LinkedList<Peg > c1;
 		int __2 = 0;
 		int __3 = 0;
@@ -146,7 +148,7 @@ Class representing a collection of pegs
 		c1 = code.getPegs();
 
 		if (1 == 0) {
-			__throw_range_step_zero();
+			throw new Exception("range() step argument must not be zero");
 		}
 		for (__2 = 0, __3 = 4; ; __2 += 1) {
 			if (1 >= 0) {
@@ -158,26 +160,26 @@ Class representing a collection of pegs
 					break;
 			}
 			i = __2;
-			if ((__mbool(!((c1.get(i)).equals((this.__pegList).get(i)))))) {
+			if (!((c1.get(i)).equals((this.__pegList).get(i)))) {
 				return false;
 			}
 		}
 		return true;
 	}
-	private final Object setRandomCode(int codeSize) {
+	public final Object setRandomCode(int codeSize) {
 		int __0 = 0;
 		int __1 = 0;
 		int i = 0;
-		__peg__.Peg x;
+		Peg x;
 
 		if ((codeSize == (-1))) {
 			codeSize = this.__defaultCodeSize;
 		}
 		GlobalMembersCode.seed(((Object)(null)));
-		this.__pegList = (new java.util.LinkedList<Peg *>());
+		this.__pegList = (new java.util.LinkedList<Peg>());
 
 		if (1 == 0) {
-			__throw_range_step_zero();
+			throw new Exception("range() step argument must not be zero");
 		}
 		for (__0 = 0, __1 = codeSize; ; __0 += 1) {
 			if (1 >= 0) {
@@ -189,8 +191,9 @@ Class representing a collection of pegs
 					break;
 			}
 			i = __0;
-			x = (new Peg(__random__.randint(0, (Colours.numberOfColours - 1))));
-			(this.__pegList).append(x);
+			Random rand = new Random();
+			x = (new Peg(rand.nextInt(Colours.numberOfColours - 1)));
+			(this.__pegList).add(x);
 		}
 
 		return null;

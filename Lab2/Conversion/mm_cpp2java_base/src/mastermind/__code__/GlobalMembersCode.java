@@ -14,13 +14,13 @@ public class GlobalMembersCode {
 	//extern java.util.LinkedList<__peg__::Peg *> * default_0;
 
 	public static void __init() {
-		__name__ = new String("code");
-
-		/**
-		 copyright Sean McCarthy, license GPL v2 or later
-		*/
-		default_0 = null;
-		cl_Code = new class_("Code");
+//		__name__ = new String("code");
+//
+//		/**
+//		 copyright Sean McCarthy, license GPL v2 or later
+//		*/
+//		default_0 = null;
+//		cl_Code = new class_("Code");
 	}
 
 
@@ -30,11 +30,11 @@ public class GlobalMembersCode {
 	public static String __name__;
 
 
-	public static java.util.LinkedList<__peg__.Peg > default_0;
+//	public static java.util.LinkedList<Peg > default_0;
 
 
 	/**
 	 copyright Sean McCarthy, license GPL v2 or later 
 	*/
-	public static class_ cl_Code;
+//	public static class_ cl_Code;
 }

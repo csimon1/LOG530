@@ -1,5 +1,9 @@
 package mastermind.__game__;
 
+import mastermind.__board__.Board;
+import mastermind.__code__.Code;
+import mastermind.__row__.Row;
+
 //C++ TO JAVA CONVERTER NOTE: Java has no need of forward class declarations:
 //class Code;
 //C++ TO JAVA CONVERTER NOTE: Java has no need of forward class declarations:
@@ -14,33 +18,32 @@ public class Game {
 Class Game, provides functions for playing
 */
 	public int __maxguesses = 0;
-	public __code__.Code __secretCode;
-	public __board__.Board __board;
+	public Code __secretCode;
+	public Board __board;
 	public int __tries = 0;
 
 	public Game() {
 	}
 	public Game(int maxguesses) {
-		this.__class__ = GlobalMembersGame.cl_Game;
 		__init__(maxguesses);
 	}
 	public final boolean isOver() {
-		boolean __16 = new boolean();
-		boolean __17 = new boolean();
+		boolean __16 = false;
+		boolean __17 = false;
 
 		if ((this.__tries > 0)) {
-			return ((___bool(__16 = ___bool((this.__tries >= this.__maxguesses))))?(__16):((this.lastGuess()).equals(this.__secretCode)));
+			return ((__16 = (this.__tries >= this.__maxguesses))?(__16):((this.lastGuess()).equals(this.__secretCode)));
 		}
 		return false;
 	}
-	public final Object makeGuess(__code__.Code guessCode) {
+	public final Object makeGuess(Code guessCode) throws Exception {
 
 		this.__tries = (this.__tries + 1);
-		(this.__board).addRow((new __row__.Row(guessCode, this.getResult(guessCode))));
+		(this.__board).addRow((new Row(guessCode, this.getResult(guessCode))));
 		return null;
 	}
 	
-	public final __code__.Code getSecretCode() {
+	public final Code getSecretCode() {
 		return this.__secretCode;
 	}
 	
@@ -52,15 +55,15 @@ Class Game, provides functions for playing
 		return (this.lastGuess()).equals(this.getSecretCode());
 	}
 	
-	public final __code__.Code lastGuess() {
+	public final Code lastGuess() {
 		return ((this.__board).getRow((this.__tries - 1))).getGuess();
 	}
 	
-	public final __code__.Code getResult(__code__.Code guessCode) {
+	public final Code getResult(Code guessCode) throws Exception {
 		return (this.__secretCode).compare(guessCode);
 	}
 	
-	public final __board__.Board getBoard() {
+	public final Board getBoard() {
 		return this.__board;
 	}
 	
@@ -69,12 +72,12 @@ Class Game, provides functions for playing
 	}
 	
 	public final Object __init__(int maxguesses) {
-		__code__.Code secret;
+		Code secret;
 
-		secret = (new __code__.Code(null));
+		secret = (new Code(null));
 		secret.setRandomCode((-1));
 		this.__secretCode = secret;
-		this.__board = (new __board__.Board(1));
+		this.__board = (new Board(1));
 		this.__maxguesses = maxguesses;
 		this.__tries = 0;
 		return null;
