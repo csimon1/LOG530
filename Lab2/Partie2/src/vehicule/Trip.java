@@ -12,9 +12,9 @@ public class Trip {
 	public double getExpectedTripDuration(){
 		//Obtenir l'info pour calculer la vitesse
 		int engineSpeed = vehicule.getEngine().getRpm();
-		double tireDiameter = vehicule.getTireDiameter();
+		double tireDiameter = vehicule.getTire().getDiameter(); /*vehicule.getTireDiameter();*/
 		double differentialRatio = vehicule.getTransmission().getDifferentialRatio();
-		double gearRatio = 0;
+		double gearRatio = vehicule.getTransmission().getCurrentGearObj().getRatio(); /*0;
 		switch(vehicule.getTransmission().getCurrentGear()){
 			case Transmission.FIRST_GEAR:
 				gearRatio = 3.615;
@@ -40,7 +40,7 @@ public class Trip {
 			default:
 				gearRatio = 0;
 				break;
-		}
+		}*/
 		
 		//calculer la vitesse
 		double speed = calculateSpeed(engineSpeed, gearRatio, differentialRatio, tireDiameter);
