@@ -24,7 +24,7 @@ Class Game, provides functions for playing
 
 	public Game() {
 	}
-	public Game(int maxguesses) {
+	public Game(int maxguesses) throws Exception {
 		__init__(maxguesses);
 	}
 	public final boolean isOver() {
@@ -71,7 +71,7 @@ Class Game, provides functions for playing
 		return this.__maxguesses;
 	}
 	
-	public final Object __init__(int maxguesses) {
+	public final Object __init__(int maxguesses) throws Exception {
 		Code secret;
 
 		secret = (new Code(null));

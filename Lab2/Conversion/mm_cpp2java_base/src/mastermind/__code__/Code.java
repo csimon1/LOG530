@@ -166,7 +166,7 @@ Class representing a collection of pegs
 		}
 		return true;
 	}
-	public final Object setRandomCode(int codeSize) {
+	public final Object setRandomCode(int codeSize) throws Exception {
 		int __0 = 0;
 		int __1 = 0;
 		int i = 0;
@@ -175,7 +175,7 @@ Class representing a collection of pegs
 		if ((codeSize == (-1))) {
 			codeSize = this.__defaultCodeSize;
 		}
-		GlobalMembersCode.seed(((Object)(null)));
+		Random rand = new Random();
 		this.__pegList = (new java.util.LinkedList<Peg>());
 
 		if (1 == 0) {
@@ -191,7 +191,7 @@ Class representing a collection of pegs
 					break;
 			}
 			i = __0;
-			Random rand = new Random();
+			
 			x = (new Peg(rand.nextInt(Colours.numberOfColours - 1)));
 			(this.__pegList).add(x);
 		}

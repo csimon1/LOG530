@@ -1,6 +1,13 @@
 package mastermind.__mastermind__;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 import mastermind.__board__.Board;
 import mastermind.__code__.Code;
@@ -92,8 +99,11 @@ guesses.
 		const_23 = new String("__main__");
 
 	}
-		
-	public static int Main( String[] __ss_argv) {
+	
+	public static void main(String[] args) throws Exception {
+		Main(args);
+	}
+	public static int Main( String[] __ss_argv) throws Exception {
 
 		Colours.__init();
 		
@@ -101,78 +111,84 @@ guesses.
 		boolean __49;
 		boolean __50;
 		int guesses = 0;
+		Mastermind.__init();
 
 		 
 		m = (new Mastermind());
 		guesses = 8;
-		if ((__ss_argv.length > 1) && (__re__.match(const_22, (__ss_argv[1]), 0) != null)) {
+		if ((__ss_argv.length > 1) && (const_22.equals(__ss_argv[1]))) {
 			guesses = Integer.parseInt(__ss_argv[1]);
 		}
 		m.play(guesses);
+		
+		return 0;
 	}
 	
 	
 	public Mastermind() {
 	}
-	public final Object play(int guesses) {
+	public final Object play(int guesses) throws Exception {
 		Game gm;
 
 		this.greeting();
 		gm = (new Game(guesses));
 
 		while (!gm.isOver()) {
-			print2(null,0,4, const_0, ___box((gm.getTries() + 1)), const_1, ___box(gm.getMaxTries()));
+			System.out.println(const_0 +"   " + (gm.getTries() + 1) +"   " + const_1 + "    " + gm.getMaxTries());
 			gm.makeGuess(this.__readGuess());
-			print2(null,0,1, const_2);
+			System.out.println(const_2);
 			this.display(gm);
-			print2(null,0,1, const_3);
+			System.out.println(const_3);
 		}
 		if (gm.isWon()) {
-			print2(null,0,1, const_4);
+			System.out.println(const_4);
 		}
 		else {
-			print2(null,1,1, const_5);
+			System.out.println(const_5);
 			this.displaySecret(gm);
 		}
 		return null;
 	}
 	public final Object greeting() {
 
-		print2(null,0,1, const_6);
-		print2(null,0,1, const_3);
-		print2(null,0,1, const_7);
-		print2(null,0,1, const_3);
-		print2(null,0,1, const_6);
-		print2(null,0,1, const_8);
-		print2(null,0,1, const_9);
-		print2(null,0,1, const_6);
+		System.out.println(const_6);
+		System.out.println(const_3);
+		System.out.println(const_7);
+		System.out.println(const_3);
+		System.out.println(const_6);
+		System.out.println(const_8);
+		System.out.println(const_9);
+		System.out.println(const_6);
 		return null;
 	}
-	public final Code __readGuess() {
-		java.util.LinkedList<String> __45;
-		java.util.LinkedList<String> colours;
+	public final Code __readGuess() throws IOException {
+		String[] __45;
+		String[] colours;
 		Peg peg;
 		java.util.LinkedList<Peg> guessPegs;
 		boolean inputOk = false;
-		__iter<String> __46;
-		java.util.LinkedList<String>.for_in_loop __48 = new java.util.LinkedList<String>.for_in_loop();
+		Iterator<String> __46;
+		Iterator<String> __48;
 		String c;
 		int __47 = 0;
 
 		guessPegs = (new java.util.LinkedList<Peg>());
-		print2(null,0,1, const_10);
-		print2(null,0,1, const_11);
+		System.out.println(const_10);
+		System.out.println(const_11);
 		inputOk = false;
 
 		while (!inputOk) {
-			colours = __re__.split(const_12, raw_input(const_13), 4);
-
+			System.out.print(const_13);
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			colours = br.readLine().split(const_12);
+			
 			__45 = colours;
 			__47 = -1;
-			__48 = __45.for_in_init();
-			while (__45.for_in_has_next(__48)) {
+			//__48 = __45;
+			for (int i = 0; i < colours.length; i++) {
 				__47++;
-				c = __45.for_in_next(__48);
+				c = colours[i];
+				System.out.println(c);
 				peg = this.__parseColour(c);
 				if ((peg != null)) {
 					guessPegs.add(peg);
@@ -181,7 +197,7 @@ guesses.
 
 			inputOk = guessPegs.size() == 4;
 			if (!inputOk) {
-				print2(null,0,1, const_14);
+				System.out.println(const_14);
 				guessPegs = (new java.util.LinkedList<Peg>());
 			}
 		}
@@ -189,101 +205,113 @@ guesses.
 	}
 	public final Peg __parseColour(String s) {
 
-		if ((__re__.search(const_15, s, 0) != null)) {
+		if (s.matches(const_15)) {
 			return (new Peg(Colours.red));
 		}
-		else if ((__re__.search(const_16, s, 0) != null)) {
+		else if (s.matches(const_16)) {
 			return (new Peg(Colours.purple));
 		}
-		else if ((__re__.search(const_17, s, 0) != null)) {
+		else if (s.matches(const_17)) {
 			return (new Peg(Colours.green));
 		}
-		else if ((__re__.search(const_18, s, 0) != null)) {
+		else if (s.matches(const_18)) {
 			return (new Peg(Colours.yellow));
 		}
-		else if ((__re__.search(const_19, s, 0) != null)) {
+		else if (s.matches(const_19)) {
 			return (new Peg(Colours.white));
 		}
-		else if ((__re__.search(const_20, s, 0) != null)) {
+		else if (s.matches(const_20)) {
 			return (new Peg(Colours.black));
 		}
 		else {
 			return null;
 		}
-		return null;
 	}
 	public final Object display(Game game) {
 		java.util.LinkedList<Row > __21;
-		java.util.LinkedList<Peg>.for_in_loop __30 = new java.util.LinkedList<Peg>.for_in_loop();
-		java.util.LinkedList<Peg>.for_in_loop __36 = new java.util.LinkedList<Peg>.for_in_loop();
-		__board__.Board __26;
+		Iterator<Peg> __30;
+		Iterator<Peg> __36;
+		Board __26;
 		Code __32;
 		Code __38;
-		java.util.LinkedList<Row>.for_in_loop __24 = new java.util.LinkedList<Row >.for_in_loop();
+		Iterator<Row> __24;
 		java.util.LinkedList<Peg > __27;
 		java.util.LinkedList<Peg > __33;
 		Object __25;
 		Object __31;
 		Object __37;
-		__iter<Peg > __28;
-		__iter<Peg > __34;
+		Iterator<Peg > __28;
+		Iterator<Peg > __34;
 		Peg p;
 		int __23 = 0;
 		int __29 = 0;
 		int __35 = 0;
 		Row r;
-		__iter<__row__.Row > __22;
+		Iterator<Row > __22;
 
 
 		__21 = (game.getBoard()).getRows();
 		__23 = -1;
-		__24 = __21.for_in_init();
-		while (__21.for_in_has_next(__24)) {
+		__24 = __21.iterator();
+		while (__24.hasNext()) {
 			__23++;
-			r = __21.for_in_next(__24);
+			r = __24.next();
 
 			__27 = (r.getGuess()).getPegs();
 			__29 = -1;
-			__30 = __27.for_in_init();
-			while (__27.for_in_has_next(__30)) {
+			__30 = __27.iterator();
+			while (__30.hasNext()) {
 				__29++;
-				p = __27.for_in_next(__30);
-				print2(null,1,1, (__str(getColourName(p.getColour()))).rjust(6));
+				p = __30.next();
+				System.out.print(rjust(Colours.getColourName(p.getColour()),6));
 			}
 
-			print2(null,1,1, const_21);
+			System.out.print(const_21);
 
 			__33 = (r.getResult()).getPegs();
 			__35 = -1;
-			__36 = __33.for_in_init();
-			while (__33.for_in_has_next(__36)) {
+			__36 = __33.iterator();
+			while (__36.hasNext()) {
 				__35++;
-				p = __33.for_in_next(__36);
-				print2(null,1,1, (__str(getColourName(p.getColour()))).rjust(6));
+				p = __36.next();
+				System.out.print(rjust(Colours.getColourName(p.getColour()),6));
 			}
 
-			print2(null,0,1, const_6);
+			System.out.println(const_6);
 		}
 
 		return null;
 	}
+	
+	/**
+   	 * Affichage d'un pion en remplissant d'espace 
+   	 * pour uniformiser la taille
+   	 */
+	public static String rjust(String s, int len){
+		int space = len+1-s.length(), i;
+    	for(i=0; space>i; i++){ //.rjust(6)
+    		s = " " + s;
+    	}
+    	return s;
+	}
+	
 	public final Object displaySecret(Game game) {
-		java.util.LinkedList<Peg>.for_in_loop __42 = new java.util.LinkedList<Peg *>.for_in_loop();
+		Iterator<Peg> __42;
 		java.util.LinkedList<Peg > __39;
 		Code __44;
 		Object __43;
-		__iter<Peg > __40;
+		Iterator<Peg > __40;
 		Peg p;
 		int __41 = 0;
 
 
 		__39 = (game.getSecretCode()).getPegs();
 		__41 = -1;
-		__42 = __39.for_in_init();
-		while (__39.for_in_has_next(__42)) {
+		__42 = __39.iterator();
+		while (__42.hasNext()) {
 			__41++;
-			p = __39.for_in_next(__42);
-			print2(null,1,1, (Colours.getColourName(p.getColour()))).rjust(6);
+			p = __42.next();
+			System.out.print(rjust(Colours.getColourName(p.getColour()),6));
 		}
 
 		return null;
