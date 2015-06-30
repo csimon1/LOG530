@@ -13,3 +13,6 @@ diff -ur Conversion/mm_p2j_base/mastermind/ Conversion/mm_p2j_cleaned/src/master
 #compare p2j_cleaned with cpp2j_cleaned
 # cpp2j_cleaned not ready yet
 #diff -ur Conversion/mm_p2j_cleaned/ Conversion/mm_cpp2java_cleaned/ > doc/p2j.diff
+
+#create diff for partie2
+diff -ur Partie2/base Partie2/refact > doc/partie2.diff

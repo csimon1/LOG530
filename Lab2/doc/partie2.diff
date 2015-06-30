@@ -1,0 +1,568 @@
+diff -ur Partie2/base/src/vehicule/Application.java Partie2/refact/src/vehicule/Application.java
+--- Partie2/base/src/vehicule/Application.java	2012-06-01 14:18:52.000000000 -0400
++++ Partie2/refact/src/vehicule/Application.java	2015-06-30 16:50:55.287046795 -0400
+@@ -3,12 +3,12 @@
+ public class Application {
+ 	public static void main(String[] args){
+ 		Vehicule v = new Vehicule();
+-		v.setTireSize(0.5588);
++		v.setTire(new Tire(0.5588));/*v.setTireSize(0.5588);*/
+ 		v.getEngine().setRpm(3500);
+-		v.getTransmission().setCurrentGear(Transmission.FIFTH_GEAR);
++		v.getTransmission().setCurrentGear(Gear.FIFTH);/*v.getTransmission().setCurrentGear(Transmission.FIFTH_GEAR);*/
+ 		v.getTransmission().setDifferentialRatio(4.041);
+ 		Trip t = new Trip(100, v);		
+-		System.out.println("Car traveling at : " + "->I need help to get this result<-");
++		System.out.println("Car traveling at : " + v.calculateSpeed());
+ 		System.out.println("Expected trip duration : " + t.getExpectedTripDuration());
+ 	}
+ }
+diff -ur Partie2/base/src/vehicule/Engine.java Partie2/refact/src/vehicule/Engine.java
+--- Partie2/base/src/vehicule/Engine.java	2012-06-01 14:18:52.000000000 -0400
++++ Partie2/refact/src/vehicule/Engine.java	2015-06-30 16:47:20.349056378 -0400
+@@ -1,7 +1,7 @@
+ package vehicule;
+ 
+ public class Engine {
+-	protected int rpm = 0;
++	private int rpm = 0;
+ 
+ 	public int getRpm() {
+ 		return rpm;
+Only in Partie2/refact/src/vehicule: Gear.java
+Only in Partie2/refact/src/vehicule: Tire.java
+diff -ur Partie2/base/src/vehicule/Transmission.java Partie2/refact/src/vehicule/Transmission.java
+--- Partie2/base/src/vehicule/Transmission.java	2012-06-01 14:18:54.000000000 -0400
++++ Partie2/refact/src/vehicule/Transmission.java	2015-06-30 16:49:44.530049950 -0400
+@@ -1,23 +1,84 @@
+ package vehicule;
+ 
+ public class Transmission {
++	@Deprecated
+ 	public static final int FIRST_GEAR = 1;
++	@Deprecated
+ 	public static final int SECOND_GEAR = 2;
++	@Deprecated
+ 	public static final int THIRD_GEAR = 3;
++	@Deprecated
+ 	public static final int FOURTH_GEAR = 4;
++	@Deprecated
+ 	public static final int FIFTH_GEAR = 5;
++	@Deprecated
+ 	public static final int NEUTRAL= 0;
++	@Deprecated
+ 	public static final int REVERS_GEAR = -1;
+-	protected int currentGear = NEUTRAL;
+-	protected double differentialRatio = 4.0;
+ 	
++	
++	private Gear currentGear;
++/*	protected int currentGear = NEUTRAL;*/
++	private double differentialRatio = 4.0;
++	
++	
++	public Transmission() {
++		this.currentGear = Gear.NEUTRAL;
++	}
++	
++	/**
++	 * use instead {@link #getCurrentGearObj()} {@link Gear#getValue()} methods.
++	 * @deprecated
++	 * @return Gear value
++	 */
++	@Deprecated
+ 	public int getCurrentGear() {
+-		return currentGear;
++		return currentGear.getValue();
+ 	}
++	
++	/**
++	 * use instead {@link #setCurrentGear(Gear)} method.
++	 * @deprecated
++	 * @param gear
++	 */
++	@Deprecated
+ 	public void setCurrentGear(int gear) {
+-		this.currentGear = gear;
++		switch (gear) {
++		case FIRST_GEAR:
++			this.currentGear = Gear.FIRST;
++			break;
++		case SECOND_GEAR:
++			this.currentGear = Gear.SECOND;
++			break;
++		case THIRD_GEAR:
++			this.currentGear = Gear.THIRD;
++			break;
++		case FOURTH_GEAR:
++			this.currentGear = Gear.FOURTH;
++			break;
++		case FIFTH_GEAR:
++			this.currentGear = Gear.FIFTH;
++			break;
++		case NEUTRAL:
++			this.currentGear = Gear.NEUTRAL;
++			break;
++		case REVERS_GEAR:
++			this.currentGear = Gear.REVERSE;
++			break;
++		default:
++			this.currentGear = Gear.NEUTRAL;
++			break;
++		}
++	}
++
++	public Gear getCurrentGearObj() {
++		return currentGear;
+ 	}
+ 	
++	public void setCurrentGear(Gear currentGear) {
++		this.currentGear = currentGear;
++	}
++
+ 	public double getDifferentialRatio() {
+ 		return differentialRatio;
+ 	}
+@@ -26,4 +87,5 @@
+ 	}
+ 	
+ 	
++	
+ }
+diff -ur Partie2/base/src/vehicule/Trip.java Partie2/refact/src/vehicule/Trip.java
+--- Partie2/base/src/vehicule/Trip.java	2012-06-01 14:18:54.000000000 -0400
++++ Partie2/refact/src/vehicule/Trip.java	2015-06-30 16:47:10.948056797 -0400
+@@ -1,8 +1,8 @@
+ package vehicule;
+ 
+ public class Trip {
+-	Vehicule vehicule;
+-	int distance;
++	private final Vehicule vehicule;
++	private final int distance;
+ 	
+ 	public Trip(int distance, Vehicule vehicule) {
+ 		this.vehicule = vehicule;
+@@ -10,59 +10,12 @@
+ 	}
+ 	
+ 	public double getExpectedTripDuration(){
+-		//Obtenir l'info pour calculer la vitesse
+-		int engineSpeed = vehicule.getEngine().getRpm();
+-		double tireDiameter = vehicule.getTireDiameter();
+-		double differentialRatio = vehicule.getTransmission().getDifferentialRatio();
+-		double gearRatio = 0;
+-		switch(vehicule.getTransmission().getCurrentGear()){
+-			case Transmission.FIRST_GEAR:
+-				gearRatio = 3.615;
+-				break;
+-			case Transmission.SECOND_GEAR:
+-				gearRatio = 2.053;
+-				break;
+-			case Transmission.THIRD_GEAR:
+-				gearRatio = 1.370;
+-				break;
+-			case Transmission.FOURTH_GEAR:
+-				gearRatio = 1.031;
+-				break;
+-			case Transmission.FIFTH_GEAR:
+-				gearRatio = 0.837;
+-				break;
+-			case Transmission.NEUTRAL:
+-				gearRatio = 0;
+-				break;
+-			case Transmission.REVERS_GEAR:
+-				gearRatio = 3.583;
+-				break;
+-			default:
+-				gearRatio = 0;
+-				break;
+-		}
+-		
+ 		//calculer la vitesse
+-		double speed = calculateSpeed(engineSpeed, gearRatio, differentialRatio, tireDiameter);
+-		
+-		//calculer le temps nécessaire pour parcourir la distance	
++		double speed = vehicule.calculateSpeed();
++		//calculer le temps nï¿½cessaire pour parcourir la distance	
+ 		double duree = distance / speed;
+ 		return duree;	
+ 	}
+ 
+-	double calculateSpeed(int engineSpeed, double gearRatio, double differentialRatio, double tireDiameter){
+-		//Calculer la circonférence de la roue (en mètre)
+-		double circumference = tireDiameter * Math.PI;
+-		
+-		//Trouver combien de tours l'essieu fait par minute
+-		double wheelRPM = (engineSpeed / gearRatio) / differentialRatio;
+-
+-		//Trouver la distance parcourue par minute
+-		double speedInMeterPerMinute = wheelRPM * circumference;
+-		
+-		//Convertir en Km/h
+-		double speedInKmPerHour = speedInMeterPerMinute * 0.06;
+-		
+-		return speedInKmPerHour;
+-	}
++	
+ }
+diff -ur Partie2/base/src/vehicule/Vehicule.java Partie2/refact/src/vehicule/Vehicule.java
+--- Partie2/base/src/vehicule/Vehicule.java	2012-06-01 14:18:54.000000000 -0400
++++ Partie2/refact/src/vehicule/Vehicule.java	2015-06-30 16:51:51.308044297 -0400
+@@ -1,25 +1,69 @@
+ package vehicule;
+ 
+ public class Vehicule {
+-	protected Transmission transmission = null;
+-	protected Engine engine = null;
+-	protected double tireSizeDiameter = 0.5;
++	private Transmission transmission = null;
++	private Engine engine = null;
++	/*protected double tireSizeDiameter = 0.5;*/
++	private Tire tire;
+ 	
+ 	public Vehicule(){
+ 		transmission = new Transmission();
+ 		engine = new Engine();
++		tire = new Tire(0.5);
+ 	}
++	
+ 	public Transmission getTransmission() {
+ 		return transmission;
+ 	}
++	
+ 	public Engine getEngine() {
+ 		return engine;
+ 	}
++	
++	/**
++	 * use instead {@link #getTire()} {@link Tire#getDiameter()} method.
++	 * @deprecated
++	 * @return tire diameter
++	 * 
++	 */
++	@Deprecated
+ 	public double getTireDiameter() {
+-		return tireSizeDiameter;
++		return tire.getDiameter();
++	}
++	
++	public Tire getTire() {
++		return tire;
++	}
++	
++	public void setTire(Tire tire) {
++		this.tire = tire;
+ 	}
++	
++	/**
++	 * use instead {@link #setTire(Tire)} method.
++	 * @deprecated
++	 * @param tireSize
++	 */
++	@Deprecated
+ 	public void setTireSize(double tireSize) {
+-		this.tireSizeDiameter = tireSize;
++		this.tire = new Tire(tireSize);
+ 	}	
+ 	
++	
++	public double calculateSpeed(){
++		//Calculer la circonfï¿½rence de la roue (en mï¿½tre)
++		double circumference = tire.getDiameter() * Math.PI;
++		
++		//Trouver combien de tours l'essieu fait par minute
++		double wheelRPM = (engine.getRpm() / transmission.getCurrentGearObj().getRatio()) / transmission.getDifferentialRatio();
++
++		//Trouver la distance parcourue par minute
++		double speedInMeterPerMinute = wheelRPM * circumference;
++		
++		//Convertir en Km/h
++		double speedInKmPerHour = speedInMeterPerMinute * 0.06;
++		
++		return speedInKmPerHour;
++	}
++	
+ }
+Only in Partie2/refact/tests/vehicule: AllTests.java
+Only in Partie2/refact/tests/vehicule: EngineTest.java
+Only in Partie2/refact/tests/vehicule: GearTest.java
+Only in Partie2/refact/tests/vehicule: TireTest.java
+Only in Partie2/refact/tests/vehicule: TransmissionTest.java
+diff -ur Partie2/base/tests/vehicule/TripTest.java Partie2/refact/tests/vehicule/TripTest.java
+--- Partie2/base/tests/vehicule/TripTest.java	2012-06-01 14:18:54.000000000 -0400
++++ Partie2/refact/tests/vehicule/TripTest.java	2015-06-28 14:20:52.365086974 -0400
+@@ -1,38 +1,252 @@
+ package vehicule;
+ 
+-import junit.framework.TestCase;
++import static org.junit.Assert.*;
+ 
+-public class TripTest extends TestCase {
+-	public void testGetExpectedTripDuration() {
+-		//Test first gear
+-		Trip t1 = createTrip(100, 3000, .5, Transmission.FIRST_GEAR);
+-		assertEquals(generateExpectedResult(100, 3000, .5, 3.615),t1.getExpectedTripDuration());
++import org.junit.After;
++import org.junit.AfterClass;
++import org.junit.Before;
++import org.junit.BeforeClass;
++import org.junit.Test;
++
++public class TripTest {
++
++	private final static double diffRatio = 4.041;
++	private final static int dist = 100 ;
++	private final static int rpm = 3000;
++	private final static double tireSize = 0.5;
++
++	private Trip t0, t1, t2, t3, t4, t5, tr;
++	private Trip t0_AfterRefactor, t1_AfterRefactor, t2_AfterRefactor, t3_AfterRefactor, t4_AfterRefactor, t5_AfterRefactor, tr_AfterRefactor;
++
++	@BeforeClass
++	public static void setUpBeforeClass() throws Exception {
++
++	}
++
++	@AfterClass
++	public static void tearDownAfterClass() throws Exception {
++	}
++
++	@Before
++	public void setUp() throws Exception {
+ 		
+-		//Test the fifth gear
+-		Trip t5 = createTrip(100, 3000, .5, Transmission.FIFTH_GEAR);
+-		assertEquals(generateExpectedResult(100, 3000, .5, 0.837),t5.getExpectedTripDuration());
++		t0 = createTrip(dist, createTripVehicule(tireSize, rpm, GearTest.NEUTRAL_VALUE));
++
++		t1 = createTrip(dist,
++				createTripVehicule(tireSize, rpm, GearTest.FIRST_VALUE));
++
++		t2 = createTrip(dist,
++				createTripVehicule(tireSize, rpm, GearTest.SECOND_VALUE));
++
++		t3 = createTrip(dist,
++				createTripVehicule(tireSize, rpm, GearTest.THIRD_VALUE));
++
++		t4 = createTrip(dist,
++				createTripVehicule(tireSize, rpm, GearTest.FOURTH_VALUE));
++
++		t5 = createTrip(dist,
++				createTripVehicule(tireSize, rpm, GearTest.FIFTH_VALUE));
++
++		tr = createTrip(dist,
++				createTripVehicule(tireSize, rpm, GearTest.REVERSE_VALUE));
++		
++		//AfterRefactor
++		t0_AfterRefactor = createTrip(dist, createTripVehicule_AfterRefactor(tireSize, rpm, Gear.NEUTRAL));
++
++		t1_AfterRefactor = createTrip(dist,
++				createTripVehicule_AfterRefactor(tireSize, rpm, Gear.FIRST));
++
++		t2_AfterRefactor = createTrip(dist,
++				createTripVehicule_AfterRefactor(tireSize, rpm, Gear.SECOND));
++
++		t3_AfterRefactor = createTrip(dist,
++				createTripVehicule_AfterRefactor(tireSize, rpm, Gear.THIRD));
++
++		t4_AfterRefactor = createTrip(dist,
++				createTripVehicule_AfterRefactor(tireSize, rpm, Gear.FOURTH));
++
++		t5_AfterRefactor = createTrip(dist,
++				createTripVehicule_AfterRefactor(tireSize, rpm, Gear.FIFTH));
++
++		tr_AfterRefactor = createTrip(dist,
++				createTripVehicule_AfterRefactor(tireSize, rpm, Gear.REVERSE));
++	}
++
++	@After
++	public void tearDown() throws Exception {
++	}
++
++	
++	@Test
++	public void testGetExpectedTripDuration_t0() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,	GearTest.NEUTRAL_RATIO,diffRatio), 
++				t0.getExpectedTripDuration(),
++				0.01);
+ 		
+-		assert(t1.getExpectedTripDuration()<t5.getExpectedTripDuration());
+ 		
+-		//Test neutral
+-		Trip tn = createTrip(100, 3000, .5, Transmission.NEUTRAL);
+-		assertEquals(0.0,tn.getExpectedTripDuration());
++	}
+ 
+-		//Test reverse	
+-		Trip tr = createTrip(100, 3000, .5, Transmission.REVERS_GEAR);
+-		assertEquals(generateExpectedResult(100, 3000, .5, 3.583),tr.getExpectedTripDuration());	
++	
++	@Test
++	public void testGetExpectedTripDuration_t1() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,GearTest.FIRST_RATIO,diffRatio),
++				t1.getExpectedTripDuration(),
++				0.01);
++	}
++
++	
++	@Test
++	public void testGetExpectedTripDuration_t2() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,GearTest.SECOND_RATIO,diffRatio),
++				t2.getExpectedTripDuration(),
++				0.01);
+ 	}
+ 	
+-	private double generateExpectedResult(int dist, double rpm, double tireSize, double gearRatio){
+-		return dist / ((tireSize * Math.PI * (rpm / gearRatio) *.06));
++
++	@Test
++	public void testGetExpectedTripDuration_t3() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,GearTest.THIRD_RATIO,diffRatio),
++				t3.getExpectedTripDuration(),
++				0.01);
++	}
++	
++
++	@Test
++	public void testGetExpectedTripDuration_t4() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,GearTest.FOURTH_RATIO,diffRatio),
++				t4.getExpectedTripDuration(),
++				0.01);
+ 	}
+ 	
+-	private Trip createTrip(int dist, int rpm, double tireSize, int gear){
++
++	@Test
++	public void testGetExpectedTripDuration_t5() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,GearTest.FIFTH_RATIO,diffRatio),
++				t5.getExpectedTripDuration(),
++				0.01);
++	}
++	
++
++	@Test
++	public void testGetExpectedTripDuration_tR() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,GearTest.REVERSE_RATIO,diffRatio),
++				tr.getExpectedTripDuration(),
++				0.01);
++	}
++
++	public void testGetExpectedTripDuration_t0_AfterRefactor() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,	Gear.NEUTRAL.getRatio(),diffRatio), 
++				t0_AfterRefactor.getExpectedTripDuration(),
++				0.01);
++	}
++	
++
++	@Test
++	public void testGetExpectedTripDuration_t1_AfterRefactor() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,Gear.FIRST.getRatio(),diffRatio),
++				t1_AfterRefactor.getExpectedTripDuration(),
++				0.01);
++	}
++
++	@Test
++	public void testGetExpectedTripDuration_t2_AfterRefactor() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,Gear.SECOND.getRatio(),diffRatio),
++				t2_AfterRefactor.getExpectedTripDuration(),
++				0.01);
++	}
++
++	@Test
++	public void testGetExpectedTripDuration_t3_AfterRefactor() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,Gear.THIRD.getRatio(),diffRatio),
++				t3_AfterRefactor.getExpectedTripDuration(),
++				0.01);
++	}
++
++	@Test
++	public void testGetExpectedTripDuration_t4_AfterRefactor() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,Gear.FOURTH.getRatio(),diffRatio),
++				t4_AfterRefactor.getExpectedTripDuration(),
++				0.01);
++	}
++
++	@Test
++	public void testGetExpectedTripDuration_t5_AfterRefactor() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,Gear.FIFTH.getRatio(),diffRatio),
++				t5_AfterRefactor.getExpectedTripDuration(),
++				0.01);
++	}
++
++	@Test
++	public void testGetExpectedTripDuration_tR_AfterRefactor() {
++		assertEquals(
++				generateExpectedResult(dist, rpm, tireSize,Gear.REVERSE.getRatio(),diffRatio),
++				tr_AfterRefactor.getExpectedTripDuration(),
++				0.01);
++	}
++
++	
++	
++	@Test
++	public void testTripDuration_consistance() {
++
++		assert (t0.getExpectedTripDuration() < t1.getExpectedTripDuration());
++		assert (t1.getExpectedTripDuration() < t2.getExpectedTripDuration());
++		assert (t2.getExpectedTripDuration() < t3.getExpectedTripDuration());
++		assert (t3.getExpectedTripDuration() < t4.getExpectedTripDuration());
++		assert (t4.getExpectedTripDuration() < t5.getExpectedTripDuration());
++	}
++	
++	@Test
++	public void testTripDuration_consistance_AfterRefactor() {
++
++		assert (t0_AfterRefactor.getExpectedTripDuration() < t1_AfterRefactor.getExpectedTripDuration());
++		assert (t1_AfterRefactor.getExpectedTripDuration() < t2_AfterRefactor.getExpectedTripDuration());
++		assert (t2_AfterRefactor.getExpectedTripDuration() < t3_AfterRefactor.getExpectedTripDuration());
++		assert (t3_AfterRefactor.getExpectedTripDuration() < t4_AfterRefactor.getExpectedTripDuration());
++		assert (t4_AfterRefactor.getExpectedTripDuration() < t5_AfterRefactor.getExpectedTripDuration());
++	}
++	
++	private double generateExpectedResult(int dist, double rpm,	double tireSize, double gearRatio, double diffRatio) {
++		return dist / (( (tireSize * Math.PI) * ((rpm / gearRatio) / diffRatio) * .06));
++	}
++
++	private static Vehicule createTripVehicule(double tireSize, int rpm,
++			int gear) {
+ 		Vehicule v = new Vehicule();
++		Tire t = new Tire(tireSize);
+ 		v.setTireSize(tireSize);
+ 		v.getEngine().setRpm(rpm);
+ 		v.getTransmission().setCurrentGear(gear);
+-		Trip t = new Trip(dist, v);		
++		v.getTransmission().setDifferentialRatio(diffRatio);
++		return v;
++	}
++	
++	private static Vehicule createTripVehicule_AfterRefactor(double tireSize, int rpm,
++			Gear gear) {
++		Vehicule v = new Vehicule();
++		Tire t = new Tire(tireSize);
++		v.setTire(t);/* v.setTireSize(tireSize); */
++		v.getEngine().setRpm(rpm);
++		v.getTransmission().setCurrentGear(gear);
++		v.getTransmission().setDifferentialRatio(diffRatio);
++		return v;
++	}
++
++	private static Trip createTrip(int dist, Vehicule v) {
++		Trip t = new Trip(dist, v);
+ 		return t;
+ 	}
+ 
+Only in Partie2/refact/tests/vehicule: VehiculeTest.java
