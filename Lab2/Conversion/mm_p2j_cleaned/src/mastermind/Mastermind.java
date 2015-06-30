@@ -28,7 +28,11 @@ guesses.
 */
 
 public class Mastermind { // Line 10
-
+	/**
+	 * Parcour de l'entree clavier (string) obtenue pour extraire les couleurs
+	 * @param s : string du clavier
+	 * @return Pion identifie
+	 */
 	public Peg __parseColour(String s) { // Line 89
 		if (s.matches("^b")) { // Line 100
 			return new Peg(Colour.EColour.black);
@@ -51,6 +55,10 @@ public class Mastermind { // Line 10
 		return null;
 	}
 	
+	/**
+	 * Affichage du msg de bienvenue
+	 * @return 
+	 */
 	public void greeting() { // Line 48
 		System.out.println("");
 		System.out.println("---------------------");
@@ -62,6 +70,11 @@ public class Mastermind { // Line 10
 		System.out.println("");
 	}
 	
+	/**
+	 * Affiche de l'evolution du jeux
+	 * @param game
+	 * @return 
+	 */
 	public void display(Game game) { // Line 58
 		for (Row r:game.getBoard().getRows()) { // Line 59
 			for (Peg p:r.getGuess().getPegs()) { // Line 60
@@ -78,6 +91,11 @@ public class Mastermind { // Line 10
 		//displaySecret(game);
 	}
 	
+	/**
+	 * Affichage du code secret
+	 * @param game
+	 * @return 
+	 */
 	public void displaySecret(Game game) { // Line 67
 		for (Peg p:game.getSecretCode().getPegs()) { // Line 68
 			String str = p.getColour().getColourName() ;
@@ -85,6 +103,10 @@ public class Mastermind { // Line 10
 		};
 	}
 	
+	/**
+	 * Lecture de l'entree clavier pour avoir un 'code devinez'
+	 * @return Code
+	 */
 	public Code __readGuess() { // Line 71
 		ArrayList<Peg> guessPegs = new ArrayList<Peg>(); // Line 72
 		System.out.println("Type four (space seperated) colours from:");
@@ -119,6 +141,11 @@ public class Mastermind { // Line 10
 		return new Code(guessPegs);
 	}
 
+	/**
+	 * Demarrage d'une partie
+	 * @param guesses : nombre d'essais max
+	 * @return 
+	 */
 	public void play(int guesses) { // Line 32
 		this.greeting();
 		Game gm = new Game(guesses); // Line 34

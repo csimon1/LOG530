@@ -3,8 +3,9 @@ package mastermind;
 public class start {
 
 	/**
-	 * @param args
-	 */
+	* Instantiate mastermind and invoke play method to play game
+	* @param args : Argument passera l'invocation du prog
+	*/
 	public static void main(String[] args) {
 		Mastermind m = new Mastermind(); // Line 111
 		int guesses = 8; // Line 112
