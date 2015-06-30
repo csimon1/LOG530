@@ -17,9 +17,9 @@ public class Transmission {
 	public static final int REVERS_GEAR = -1;
 	
 	
-	protected Gear currentGear;
+	private Gear currentGear;
 /*	protected int currentGear = NEUTRAL;*/
-	protected double differentialRatio = 4.0;
+	private double differentialRatio = 4.0;
 	
 	
 	public Transmission() {

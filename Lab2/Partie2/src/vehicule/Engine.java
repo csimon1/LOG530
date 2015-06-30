@@ -1,7 +1,7 @@
 package vehicule;
 
 public class Engine {
-	protected int rpm = 0;
+	private int rpm = 0;
 
 	public int getRpm() {
 		return rpm;

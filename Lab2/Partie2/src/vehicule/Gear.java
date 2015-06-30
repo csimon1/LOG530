@@ -18,12 +18,8 @@ public class Gear {
 	public static final Gear REVERSE = new Gear(-1, 3.583);
 	
 	
-	private double ratio;
-	private int value;
-	
-	private Gear() {
-		// TODO Auto-generated constructor stub
-	}
+	private final double ratio;
+	private final int value;
 	
 	private Gear(int value, double ratio) {
 		this.value = value;

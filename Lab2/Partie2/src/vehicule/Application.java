@@ -8,7 +8,7 @@ public class Application {
 		v.getTransmission().setCurrentGear(Gear.FIFTH);/*v.getTransmission().setCurrentGear(Transmission.FIFTH_GEAR);*/
 		v.getTransmission().setDifferentialRatio(4.041);
 		Trip t = new Trip(100, v);		
-		System.out.println("Car traveling at : " + "->I need help to get this result<-");
+		System.out.println("Car traveling at : " + v.calculateSpeed());
 		System.out.println("Expected trip duration : " + t.getExpectedTripDuration());
 	}
 }

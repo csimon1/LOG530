@@ -1,10 +1,10 @@
 package vehicule;
 
 public class Vehicule {
-	protected Transmission transmission = null;
-	protected Engine engine = null;
+	private Transmission transmission = null;
+	private Engine engine = null;
 	/*protected double tireSizeDiameter = 0.5;*/
-	protected Tire tire;
+	private Tire tire;
 	
 	public Vehicule(){
 		transmission = new Transmission();
@@ -50,5 +50,20 @@ public class Vehicule {
 	}	
 	
 	
+	public double calculateSpeed(){
+		//Calculer la circonf�rence de la roue (en m�tre)
+		double circumference = tire.getDiameter() * Math.PI;
+		
+		//Trouver combien de tours l'essieu fait par minute
+		double wheelRPM = (engine.getRpm() / transmission.getCurrentGearObj().getRatio()) / transmission.getDifferentialRatio();
+
+		//Trouver la distance parcourue par minute
+		double speedInMeterPerMinute = wheelRPM * circumference;
+		
+		//Convertir en Km/h
+		double speedInKmPerHour = speedInMeterPerMinute * 0.06;
+		
+		return speedInKmPerHour;
+	}
 	
 }
