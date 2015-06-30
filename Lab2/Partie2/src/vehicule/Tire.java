@@ -8,7 +8,7 @@ package vehicule;
  *
  */
 public class Tire {
-	protected double diameter;
+	private final double diameter;
 	
 	public Tire(double diameter) {
 		this.diameter = diameter;
