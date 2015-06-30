@@ -11,14 +11,28 @@ Class representing a (coloured) peg on the mastermind board
 	public Peg() {
 	}
 	
+	/**
+	 * Initialisation d'un pion
+	 * @param colour :couleur du pion
+	 * @return 
+	 */
 	public Peg(int colour) {
 		__init__(colour);
 	}
 	
+	/**
+	    * Recupere la couleur d'un pion
+	    * @return 
+	    */
 	public final int getColour() {
 		return this.__colour;
 	}
 	
+	/**
+	    * Verifie qu'un pion en equivaut un autre (meme couleur)
+	    * @param peg
+	    * @return vrai ou faux
+	    */
 	@Override
 	public boolean equals(Object obj) {
 		if(obj == null)

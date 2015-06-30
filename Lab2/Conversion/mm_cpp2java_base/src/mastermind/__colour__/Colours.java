@@ -33,6 +33,12 @@ public class Colours {
 
 		Colours.__static__();
 	}
+	
+	/**
+	 * Retourne le nom d'une couleur pour un index donnee
+	 * @param i
+	 * @return 
+	 */
 	public static String getColourName(int i) {
 
 		if ((i == 0)) {

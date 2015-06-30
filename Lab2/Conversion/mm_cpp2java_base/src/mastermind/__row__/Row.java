@@ -14,13 +14,30 @@ Class containing a guess code and answer code
 	public Code __result;
 	public Code __guess;
 
+	/**
+	 * Initialisation d'un ligne
+	 * Une ligne est constitue d'un code devinez + code resulat
+	 * @param guess
+	 * @param result
+	 * @return 
+	 */
 	public Row(Code guess, Code result) {
 		__init__(guess, result);
 	}
+	
+	/**
+	 * Recupere le code resultat de la ligne
+	 * @return 
+	 */
 	public final Code getResult() {
 
 		return this.__result;
 	}
+	
+	/**
+	 * Recupere le code devinez de la ligne
+	 * @return 
+	 */
 	public final Code getGuess() {
 
 		return this.__guess;

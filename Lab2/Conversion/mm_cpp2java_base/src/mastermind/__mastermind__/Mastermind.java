@@ -124,9 +124,17 @@ guesses.
 		return 0;
 	}
 	
-	
+	/**
+	 * default constructor
+	 */
 	public Mastermind() {
 	}
+	
+	/**
+	 * Demarrage d'une partie
+	 * @param guesses : nombre d'essais max
+	 * @return 
+	 */
 	public final Object play(int guesses) throws Exception {
 		Game gm;
 
@@ -149,6 +157,11 @@ guesses.
 		}
 		return null;
 	}
+	
+	/**
+	 * Affichage du msg de bienvenue
+	 * @return 
+	 */
 	public final Object greeting() {
 
 		System.out.println(const_6);
@@ -161,6 +174,11 @@ guesses.
 		System.out.println(const_6);
 		return null;
 	}
+	
+	/**
+	 * Lecture de l'entree clavier pour avoir un 'code devinez'
+	 * @return Code
+	 */
 	public final Code __readGuess() throws IOException {
 		String[] __45;
 		String[] colours;
@@ -203,6 +221,12 @@ guesses.
 		}
 		return (new Code(guessPegs));
 	}
+	
+	/**
+	 * Parcour de l'entree clavier (string) obtenue pour extraire les couleurs
+	 * @param s : string du clavier
+	 * @return Pion identifie
+	 */
 	public final Peg __parseColour(String s) {
 
 		if (s.matches(const_15)) {
@@ -227,6 +251,13 @@ guesses.
 			return null;
 		}
 	}
+	
+	/**
+	 * Affiche de l'evolution du jeux
+	 * @param game
+	 * @return 
+	 */
+
 	public final Object display(Game game) {
 		java.util.LinkedList<Row > __21;
 		Iterator<Peg> __30;
@@ -295,6 +326,11 @@ guesses.
     	return s;
 	}
 	
+	/**
+	 * Affichage du code secret
+	 * @param game
+	 * @return 
+	 */
 	public final Object displaySecret(Game game) {
 		Iterator<Peg> __42;
 		java.util.LinkedList<Peg > __39;

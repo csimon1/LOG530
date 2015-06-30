@@ -17,13 +17,31 @@ Class representing a collection of pegs
 	private int __defaultCodeSize = 0;
 	private java.util.LinkedList<Peg> __pegList;
 
+	/**
+	 * Constructeur d'un code par defaut
+	 * @return 
+	 */
 	private Code() {
 	}
 	
+	/**
+	 * Constructeur d'un code en donnant une liste de pions
+	 * @param guessPegs
+	 * @return 
+	 */
 	public Code(java.util.LinkedList<Peg> __pegList) {
 		__init__(__pegList);
 	}
 	
+	/**
+	 * On compare le code donne par rapport au code secret et genere un "Code" resultant.
+	 * Le code resultant est contitue de :
+	 *  -1 pions blanc par pion correct mais mal place.
+	 *  -1 pions noir par pion correct et bien place.
+	 * Le code resultant ne doit pas respecte les indexs 
+	 * @param code : code devinez
+	 * @return code resultat
+	 */
 	public final Code compare(Code code) throws Exception {
 		java.util.LinkedList<Peg> resultPegs;
 		java.util.LinkedList<Boolean> guessUsed;
@@ -135,10 +153,22 @@ Class representing a collection of pegs
 		}
 		return (new Code(resultPegs));
 	}
+	
+	/**
+	 * Retourne la liste de pions constituant le code
+	 * @return list<__peg__::Peg *>
+	 */
 	public final java.util.LinkedList<Peg> getPegs() {
 
 		return this.__pegList;
 	}
+	
+	/**
+	 * Fonction pour verifier qu'un Code est equivalent a un autre.
+	 * On verifie simplement que la couleur d'un pions est egale a un autre pour l'emplacement donne.
+	 * @param code
+	 * @return 
+	 */
 	private final boolean equals(Code code) throws Exception {
 		java.util.LinkedList<Peg > c1;
 		int __2 = 0;
@@ -166,6 +196,12 @@ Class representing a collection of pegs
 		}
 		return true;
 	}
+	
+	 /**
+     * Genere un code aleatoire de taille codeSize
+     * @param codeSize : Taille du code a genere
+     * @return Code aleatoire
+     */
 	public final Object setRandomCode(int codeSize) throws Exception {
 		int __0 = 0;
 		int __1 = 0;
