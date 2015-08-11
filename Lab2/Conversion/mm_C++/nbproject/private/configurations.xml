@@ -2,6 +2,103 @@
 <configurationDescriptor version="95">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name="doc">
+        <df name="html">
+          <df name="search">
+          </df>
+        </df>
+      </df>
+      <df name="lib">
+        <df name="builtin">
+          <in>bool.cpp</in>
+          <in>bool.hpp</in>
+          <in>compare.hpp</in>
+          <in>complex.cpp</in>
+          <in>complex.hpp</in>
+          <in>dict.hpp</in>
+          <in>exception.cpp</in>
+          <in>exception.hpp</in>
+          <in>extmod.hpp</in>
+          <in>file.cpp</in>
+          <in>file.hpp</in>
+          <in>format.cpp</in>
+          <in>format.hpp</in>
+          <in>function.cpp</in>
+          <in>function.hpp</in>
+          <in>hash.hpp</in>
+          <in>iter.hpp</in>
+          <in>list.hpp</in>
+          <in>math.cpp</in>
+          <in>math.hpp</in>
+          <in>msvc.hpp</in>
+          <in>set.hpp</in>
+          <in>str.cpp</in>
+          <in>str.hpp</in>
+          <in>tuple.hpp</in>
+        </df>
+        <df name="os">
+          <in>__init__.cpp</in>
+          <in>__init__.hpp</in>
+          <in>path.cpp</in>
+          <in>path.hpp</in>
+        </df>
+        <in>ConfigParser.cpp</in>
+        <in>ConfigParser.hpp</in>
+        <in>array.cpp</in>
+        <in>array.hpp</in>
+        <in>binascii.cpp</in>
+        <in>binascii.hpp</in>
+        <in>bisect.cpp</in>
+        <in>bisect.hpp</in>
+        <in>builtin.cpp</in>
+        <in>builtin.hpp</in>
+        <in>cStringIO.cpp</in>
+        <in>cStringIO.hpp</in>
+        <in>collections.cpp</in>
+        <in>collections.hpp</in>
+        <in>colorsys.cpp</in>
+        <in>colorsys.hpp</in>
+        <in>copy.cpp</in>
+        <in>copy.hpp</in>
+        <in>csv.cpp</in>
+        <in>csv.hpp</in>
+        <in>datetime.cpp</in>
+        <in>datetime.hpp</in>
+        <in>fnmatch.cpp</in>
+        <in>fnmatch.hpp</in>
+        <in>getopt.cpp</in>
+        <in>getopt.hpp</in>
+        <in>glob.cpp</in>
+        <in>glob.hpp</in>
+        <in>heapq.cpp</in>
+        <in>heapq.hpp</in>
+        <in>itertools.cpp</in>
+        <in>itertools.hpp</in>
+        <in>math.cpp</in>
+        <in>math.hpp</in>
+        <in>mmap.cpp</in>
+        <in>mmap.hpp</in>
+        <in>random.cpp</in>
+        <in>random.hpp</in>
+        <in>re.cpp</in>
+        <in>re.hpp</in>
+        <in>select.cpp</in>
+        <in>select.hpp</in>
+        <in>signal.cpp</in>
+        <in>signal.hpp</in>
+        <in>socket.cpp</in>
+        <in>socket.hpp</in>
+        <in>stat.cpp</in>
+        <in>stat.hpp</in>
+        <in>string.cpp</in>
+        <in>string.hpp</in>
+        <in>struct.cpp</in>
+        <in>struct.hpp</in>
+        <in>sys.cpp</in>
+        <in>sys.hpp</in>
+        <in>time.cpp</in>
+        <in>time.hpp</in>
+      </df>
       <in>board.cpp</in>
       <in>board.hpp</in>
       <in>code.cpp</in>
