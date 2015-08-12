@@ -1,4 +1,4 @@
-package com.random.game;
+package com.random.game.slingshot;
 
 public class Utils {
 
@@ -24,6 +24,10 @@ public class Utils {
 		return image,image.get_rect();
 	}
 	*/
+	
+	public static double randIntr(double min, double max){
+		return (Math.random()*(max-min)+min);
+	}
 	
 	public static float radians(int degree){
 		return (float) (Math.PI / 180 * degree);

@@ -1,4 +1,4 @@
-package com.random.game;
+package com.random.game.slingshot;
 
 /**
 #    This file is part of Slingshot.

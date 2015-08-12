@@ -1,4 +1,4 @@
-package com.random.game;
+package com.random.game.slingshot;
 
 public class Pos {
 	float x;
@@ -20,6 +20,10 @@ public class Pos {
 		this.y =y;
 	}
 	
+	public void up(double d, double e) {
+		this.up((float)d, (float)e);
+	}
+	
 	public Pos diff(Pos v){
 		return new Pos(x-v.x,y-v.y);
 	}
@@ -31,4 +35,6 @@ public class Pos {
 	public float diffY(Pos p){
 		return y-p.y;
 	}
+
+	
 }

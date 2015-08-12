@@ -1,4 +1,4 @@
-package com.random.game;
+package com.random.game.slingshot;
 
 import java.util.List;
 
@@ -7,9 +7,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 
 public class Particule extends Sprite {
-	private Pos pos, last_pos, v;
-	private Pos impact_pos;
-	private int flight, speed, angle, size;
+	protected Pos pos;
+	protected Pos last_pos;
+	protected Pos v;
+	protected Pos impact_pos;
+	protected int flight;
+	protected int speed;
+	protected int angle;
+	private int size;
 	private Rectangle rect;
 	private Texture image;
 		

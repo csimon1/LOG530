@@ -1,4 +1,4 @@
-package com.random.game;
+package com.random.game.slingshot;
 
 import com.badlogic.gdx.graphics.Texture;
 
